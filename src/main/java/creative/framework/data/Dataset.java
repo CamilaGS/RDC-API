@@ -2,6 +2,8 @@ package creative.framework.data;
 
 import java.util.ArrayList;
 import java.util.List;
+import org.apache.commons.math3.stat.descriptive.moment.Mean;
+import org.apache.commons.math3.stat.descriptive.moment.Variance;
 
 /**
  * 
@@ -34,53 +36,99 @@ public class Dataset {
 	public void setInstances(ArrayList<Instance> instances) {
 		this.instances = instances;
 	}
-	
-    /**
-     * Return a list of average for each attribute
+//	
+//    /**
+//     * Return a list of average for each attribute
+//     *
+//     * @return
+//     */
+//	public List<Double> getAverages() {
+//
+//		ArrayList<Double> averages = new ArrayList<>();
+//		List<Double> instanceData;
+//		double[] sum = new double[inputAttributes];
+//
+//		for (Instance instance : instances) {
+//			instanceData = instance.getData();
+//			for (int i = 0; i < inputAttributes; i++) {
+//				sum[i] += instanceData.get(i);
+//			}
+//		}
+//
+//		for (int i = 0; i < inputAttributes; i++) {
+//			averages.add(sum[i] / instances.size());
+//		}
+//
+//		return averages;
+//	}
+//	
+//    /**
+//     * Return a list of variance for each attribute
+//     *
+//     * @param averages
+//     * @return
+//     */
+//    public List<Double> getVariances(List<Double> averages) {
+//    	
+//        ArrayList<Double> variances = new ArrayList<>();
+//        List<Double> instanceData;
+//        double[] sum = new double[inputAttributes];
+//
+//        for (Instance instance : instances) {
+//            instanceData = instance.getData();
+//            for (int i = 0; i < inputAttributes; i++) {
+//                sum[i] += Math.pow(instanceData.get(i) - averages.get(i), 2);
+//            }
+//        }
+//        
+//        for (int i = 0; i < inputAttributes; i++) {
+//            variances.add(sum[i] / (instances.size() - 1));
+//        }
+//        
+//        return variances;
+//    }
+    
+        /**
+     * Return a list of means for each attribute
      *
      * @return
      */
-	public List<Double> getAverages() {
+    public List<Mean> getMeans() {
+        List<Mean> means = new ArrayList<>();
+        
+        for (int i = 0; i < inputAttributes; i++) {
+            means.add(new Mean());
+        }
 
-		ArrayList<Double> averages = new ArrayList<>();
-		List<Double> instanceData;
-		double[] sum = new double[inputAttributes];
+        List<Double> instanceData;
+        for (Instance instance : instances) {
+            instanceData = instance.getData();
+            for (int i = 0; i < inputAttributes; i++) {
+                means.get(i).increment(instanceData.get(i));
+            }
+        }
+        
+        return means;
+    }
 
-		for (Instance instance : instances) {
-			instanceData = instance.getData();
-			for (int i = 0; i < inputAttributes; i++) {
-				sum[i] += instanceData.get(i);
-			}
-		}
-
-		for (int i = 0; i < inputAttributes; i++) {
-			averages.add(sum[i] / instances.size());
-		}
-
-		return averages;
-	}
-	
     /**
      * Return a list of variance for each attribute
      *
-     * @param averages
      * @return
      */
-    public List<Double> getVariances(List<Double> averages) {
-    	
-        ArrayList<Double> variances = new ArrayList<>();
+    public List<Variance> getVariances() {
+        ArrayList<Variance> variances = new ArrayList<>();
         List<Double> instanceData;
-        double[] sum = new double[inputAttributes];
+
+        for (int i = 0; i < inputAttributes; i++) {
+            variances.add(new Variance());
+        }
 
         for (Instance instance : instances) {
             instanceData = instance.getData();
             for (int i = 0; i < inputAttributes; i++) {
-                sum[i] += Math.pow(instanceData.get(i) - averages.get(i), 2);
+                variances.get(i).increment(instanceData.get(i));
             }
-        }
-        
-        for (int i = 0; i < inputAttributes; i++) {
-            variances.add(sum[i] / (instances.size() - 1));
         }
         
         return variances;
