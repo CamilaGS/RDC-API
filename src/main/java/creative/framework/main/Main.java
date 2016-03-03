@@ -67,6 +67,7 @@ public class Main {
                 
                 //Get Novelty Interface
                 Novelty novelty = new BayesianNovelty(dataset.getMeans(),dataset.getVariances(),0.02,parser.getInstance(apparel).getNumberOfAtributtes(),parser);
+                
                 System.out.println("Novelty: "+novelty.getNovelty(apparel));
 	}
 }
