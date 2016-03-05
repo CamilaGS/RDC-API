@@ -11,7 +11,7 @@ import org.apache.commons.math3.stat.descriptive.moment.Variance;
  *
  * @author Celso
  */
-public class BayesianNovelty implements Novelty<Apparel> {
+public class BayesianSurprise implements Novelty<Apparel> {
 
     List<Mean> means;
     List<Variance> variances;
@@ -19,7 +19,7 @@ public class BayesianNovelty implements Novelty<Apparel> {
     Integer inputAttributes;
     Parser parser;
 
-    public BayesianNovelty(
+    public BayesianSurprise(
             List<Mean> means,
             List<Variance> variances,
             Double lambda,

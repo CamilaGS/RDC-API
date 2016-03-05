@@ -11,7 +11,7 @@ import com.google.gson.reflect.TypeToken;
 import creative.framework.data.Dataset;
 import creative.framework.data.Instance;
 import creative.framework.model.Apparel;
-import creative.framework.novelty.BayesianNovelty;
+import creative.framework.novelty.BayesianSurprise;
 import creative.framework.novelty.Novelty;
 import creative.framework.parser.ApparelParser;
 import creative.framework.parser.Parser;
@@ -66,7 +66,7 @@ public class Main {
                 Apparel apparel = artifact.get(1);
                 
                 //Get Novelty Interface
-                Novelty novelty = new BayesianNovelty(dataset.getMeans(),dataset.getVariances(),0.02,parser.getInstance(apparel).getNumberOfAtributtes(),parser);
+                Novelty novelty = new BayesianSurprise(dataset.getMeans(),dataset.getVariances(),0.02,parser.getInstance(apparel).getNumberOfAtributtes(),parser);
                 
                 System.out.println("Novelty: "+novelty.getNovelty(apparel));
 	}
