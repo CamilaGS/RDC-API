@@ -20,4 +20,11 @@ public interface Value <T> {
 	 */
     public Double getValue(T artifact);
 
+        /**
+     * Gets the efficiency value of a data
+     *
+     * @param artifact
+     * @return
+     */
+    public Double getEfficiency(T artifact);
 }
