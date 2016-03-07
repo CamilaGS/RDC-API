@@ -1,5 +1,13 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package creative.framework.value;
 
+import creative.framework.model.Apparel;
+import creative.framework.model.ClothingItem;
+import creative.framework.model.Color;
 import edu.uci.ics.jung.algorithms.shortestpath.DijkstraShortestPath;
 import edu.uci.ics.jung.graph.Graph;
 import edu.uci.ics.jung.graph.SparseMultigraph;
@@ -9,66 +17,67 @@ import java.util.Map;
 
 /**
  *
- * @author Celso
+ * @author creapar team
  */
-public class SynergyValue implements Value<List<Integer>> {
+public class SynergyValue implements Value<Apparel> {
 
-    Map<Integer, List<Integer>> synergyList;
+    Map<Color, List<Color>> colorSynergy;
+    Graph<ClothingItem, Integer> graph;
 
-    public SynergyValue(Map<Integer, List<Integer>> synergyList) {
-        this.synergyList = synergyList;
-    }
-
-    @Override
-    public Double getEfficiency(List<Integer> artifact) {
-        // create new graph
-        Graph<Integer, Integer> graph = new SparseMultigraph<>();
-        // add vertex
-        addVertex(graph, artifact);
-        // add edges
-        addEdges(graph, artifact);
-        
-        Double c = conectedness(graph);
-        Double a = degreeAverage(graph);
-        
-        return (c+a - Math.abs(c-a))/2;
+    public SynergyValue(Map<Color, List<Color>> colorSynergy) {
+        this.colorSynergy = colorSynergy;
     }
     
-       private double penalty(Double c, Double a) {
-        double maxPenalty= c+a;
-        Double penalty = Math.sqrt(Math.abs(c - a));
-        if (penalty > maxPenalty) {
-            penalty = maxPenalty;
+    
+
+    @Override
+    public Double getValue(Apparel artifact) {
+        // create new graph
+        graph = new SparseMultigraph<>();
+        // add vertex
+        addVertex(artifact);
+        // add edges
+        addEdges(artifact);
+
+        return 0.5*(kc()+p());
+    }
+
+    /**
+     *
+     * @param graph
+     * @param artifact
+     */
+    private void addVertex(Apparel artifact) {
+        for (ClothingItem item : artifact.getClothingItems()) {
+            graph.addVertex(item);
         }
-        return penalty;
     }
 
-    private void addVertex(Graph<Integer, Integer> graph, List<Integer> artifact) {
-        artifact.stream().forEach((cardId) -> {
-            graph.addVertex(cardId);
-        });
-    }
-
-    private void addEdges(Graph<Integer, Integer> graph, List<Integer> artifact) {
+    private void addEdges(Apparel artifact) {
         Integer edges = 0;
-        for (Integer vertex : artifact) {
-            for (Integer synergicVerte : synergyList.get(vertex)) {
-                if (graph.containsVertex(synergicVerte)) {
-                    graph.addEdge(edges++, vertex, synergicVerte);
+        Color uColor, vColor;
+
+        for (ClothingItem u : artifact.getClothingItems()) {
+            uColor = u.getColor();
+            for (ClothingItem v : artifact.getClothingItems()) {
+                vColor = v.getColor();
+                if (isSynergic(uColor, vColor)) {
+                    graph.addEdge(edges++, u, v);
                 }
+
             }
 
         }
     }
 
-    private Double conectedness(Graph<Integer, Integer> graph) {
-        DijkstraShortestPath<Integer, Integer> djk = new DijkstraShortestPath(graph);
-        Collection<Integer> vertices = graph.getVertices();
+    private Double kc() {
+        DijkstraShortestPath<ClothingItem, Integer> djk = new DijkstraShortestPath(graph);
+        Collection<ClothingItem> vertices = graph.getVertices();
         int vertexCount = graph.getVertexCount();
         int paths = 0;
-        for (Integer v1 : vertices) {
-            for (Integer v2 : vertices) {
-                if (v1 != v2) {
+        for (ClothingItem v1 : vertices) {
+            for (ClothingItem v2 : vertices) {
+                if (!v1.equals(v2)) {
                     if (djk.getDistance(v1, v2) != null) {
                         paths++;
                     }
@@ -78,29 +87,14 @@ public class SynergyValue implements Value<List<Integer>> {
         return (paths) / (1.0 * vertexCount * (vertexCount - 1));
     }
 
-    private Double degreeAverage(Graph<Integer, Integer> graph) {
-        Integer totalDegree = 0;
-        for (Integer v : graph.getVertices()) {
-            totalDegree += graph.degree(v);
-        }
-        Double degreeAverage = totalDegree / (1.0 * graph.getVertexCount());
-        return (1 - Math.exp(-0.1 * degreeAverage));
+    private Double p() {
+        int e = graph.getEdgeCount();
+        int n = graph.getVertexCount();
+        return 1.0 * e / (n * (n - 1));
     }
 
-    private Double minDegree(Graph<Integer, Integer> graph) {
-        Integer minDegree = Integer.MAX_VALUE;
-        Integer degree;
-        for (Integer v : graph.getVertices()) {
-            degree = graph.degree(v);
-            if (degree < minDegree) {
-                minDegree = degree;
-            }
-        }
-        return (1 - Math.exp(-0.1 * minDegree));
+    private boolean isSynergic(Color uColor, Color vColor) {
+        return colorSynergy.get(vColor).contains(uColor);
     }
 
-    @Override
-    public Double getValue(List<Integer> artifact) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 }

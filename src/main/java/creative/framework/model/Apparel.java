@@ -1,29 +1,39 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package creative.framework.model;
 
+import java.util.List;
+
+/**
+ *
+ * @author cel
+ */
 public class Apparel {
-	
-	private String pants;
-	private String shirt;
-	private String shoes;
-	
-	public String getPants() {
-		return pants;
-	}
-	public void setPants(String pants) {
-		this.pants = pants;
-	}
-	public String getShirt() {
-		return shirt;
-	}
-	public void setShirt(String shirt) {
-		this.shirt = shirt;
-	}
-	public String getShoes() {
-		return shoes;
-	}
-	public void setShoes(String shoes) {
-		this.shoes = shoes;
-	}
-	
-	
+    
+    List<ClothingItem> clothingItems;
+
+    public Apparel() {
+    }
+
+    public Apparel(List<ClothingItem> clothingItems) {
+        this.clothingItems = clothingItems;
+    }
+    
+    
+
+    public List<ClothingItem> getClothingItems() {
+        return clothingItems;
+    }
+
+    public void setClothingItems(List<ClothingItem> clothingItems) {
+        this.clothingItems = clothingItems;
+    }
+
+    
+    
+    
+    
 }
