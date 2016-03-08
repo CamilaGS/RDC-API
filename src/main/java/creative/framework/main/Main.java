@@ -1,90 +1,81 @@
 package creative.framework.main;
 
-import java.lang.reflect.Type;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map.Entry;
-
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
-
-import creative.framework.data.Dataset;
-import creative.framework.data.Instance;
 import creative.framework.model.Apparel;
+import creative.framework.model.Artifact;
+import creative.framework.model.ClothingItem;
 import creative.framework.model.Color;
-import creative.framework.novelty.BayesianSurprise;
-import creative.framework.novelty.Novelty;
-import creative.framework.parser.ApparelParser;
-import creative.framework.parser.Parser;
-import creative.framework.util.Utils;
-import creative.framework.value.SynergyValue;
-import creative.framework.value.Value;
+import creative.framework.model.Type;
+import java.util.Arrays;
 import java.util.List;
-import org.apache.commons.math3.stat.descriptive.moment.Mean;
-import org.apache.commons.math3.stat.descriptive.moment.Variance;
 
 public class Main {
 
+    /**
+     * Main
+     *
+     * @param args
+     */
     public static void main(String[] args) {
-        apparelTest();
+        if (args.length < 3) {
+            System.out.println("Insufficient number of arguments. \nEnter a colors to shirt, pants and shoes (in that order).");
+        } else {
+            List<String> shirtColors = Arrays.asList("BLUE", "GRAY", "LILAC", "NAVY", "WHITE", "blue", "gray", "lilac", "navy", "white");
+            List<String> pantsColors = Arrays.asList("BLACK", "BROWN", "GRAY", "NAVY", "WHITE", "black", "brown", "gray", "navy", "white");
+            List<String> shoesColors = Arrays.asList("BLACK", "BROWN", "GRAY", "NAVY", "WHITE", "black", "brown", "gray", "navy", "white");
+
+            String color1 = args[0].toUpperCase();
+            String color2 = args[1].toUpperCase();
+            String color3 = args[2].toUpperCase();
+            if (shirtColors.contains(color1)) {
+                if (pantsColors.contains(color2)) {
+                    if (shoesColors.contains(color3)) {
+                        apparelExample(color1, color2, color3);
+                    } else {
+                        System.out.println(color3 + " is not a color to shoes");
+                    }
+                } else {
+                    System.out.println(color2 + " is not a color to pants");
+                }
+            } else {
+                System.out.println(color1 + " is not a color to shirt");
+            }
+        }
+
     }
 
-    public static void apparelTest() {
-        //Artifact Type
-        Type artifactType = new TypeToken<HashMap<Integer, Apparel>>() {
-        }.getType();
+    /**
+     * Run Apparel Example
+     *
+     * @param color1 - shirt color
+     * @param color2 - pants color
+     * @param color3 - shoes color
+     */
+    public static void apparelExample(
+            String color1,
+            String color2,
+            String color3) {
 
-        //Artifact Type
-        Type synergyType = new TypeToken<HashMap<Color, List<Color>>>() {
-        }.getType();
+        // a context which the artifact is evalutated
+        ArtifactContext<Apparel> context = new ApparelContext(
+                "/datafiles/apparelDataset.json",
+                "/datafiles/apparelSynergy.json");
+        System.out.println(context.toString());
 
-        //Gson to manager json file
-        Gson gson = new Gson();
+        // a julde to evaluate an artifact in a context
+        ArtifactJudge judge = new ApparelJudge();
 
-        //Read Knowledge Database
-        HashMap<Integer, Apparel> artifactSet = gson.fromJson(Utils.getReader("datafiles/knowledge_database2.json"), artifactType);
+        // some clothing items
+        List<ClothingItem> clothingItem = Arrays.asList(
+                new ClothingItem(Type.SHIRT, Color.valueOf(color1)), // a navy shirt
+                new ClothingItem(Type.PANTS, Color.valueOf(color2)), // pants white
+                new ClothingItem(Type.SHOES, Color.valueOf(color3))); // shoes brown
 
-        //Create Parser
-        Parser<Apparel> parser = new ApparelParser();
+        // an artifact to be evaluated
+        Artifact artifact = new Apparel(clothingItem);
+        System.out.println(artifact.toString());
 
-        //Generate Instances for Dataset (Parser Format)
-        ArrayList<Instance> instances = new ArrayList<>();
+        // show the evaluation of an artifact
+        System.out.println("Apparel RDC Metric:" + judge.evaluateArtifact(context, artifact));
 
-        for (Entry<Integer, Apparel> entry : artifactSet.entrySet()) {
-            instances.add(parser.getInstance(entry.getValue()));
-        }
-
-        //Create Dataset
-        Dataset dataset = new Dataset(instances);
-
-        //Lines
-        System.out.println("Dataset Lines");
-        for (Instance i : dataset.getInstances()) {
-            System.out.println(i.getAttributes().toString());
-        }
-
-        //Averages
-        System.out.println("Averages ");
-        for (Mean m : dataset.getMeans()) {
-            System.out.println(m.getResult());
-        }
-
-        //Variances
-        System.out.println("Variances");
-        for (Variance v : dataset.getVariances()) {
-            System.out.println(v.getResult());
-        }
-
-        //Read artifact to be evaluated
-        HashMap<Integer, Apparel> artifact = gson.fromJson(Utils.getReader("datafiles/artifact2.json"), artifactType);
-        Apparel apparel = artifact.get(1);
-
-        //Get Novelty Interface
-        Novelty novelty = new BayesianSurprise(dataset.getMeans(), dataset.getVariances(), 0.02, parser.getInstance(apparel).getNumberOfAtributtes(), parser);
-        HashMap<Color, List<Color>> colorSynergy = gson.fromJson(Utils.getReader("datafiles/colorSynergy.json"), synergyType);
-        Value value = new SynergyValue(colorSynergy);
-
-        System.out.println("Novelty: " + novelty.getNovelty(apparel));
-        System.out.println("Value: " + value.getValue(apparel));
     }
 }

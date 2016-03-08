@@ -5,11 +5,18 @@
  */
 package creative.framework.main;
 
+import creative.framework.novelty.Novelty;
+import creative.framework.value.Value;
+
 /**
  *
-* @author creapar team
+ * @autor creapar team
  * @param <T>
  */
-public interface ArtifactJudge <T> {
-     public String evaluateArtifact(ArtifactContext<T> context, T artifact);
+public interface ArtifactContext<T> {
+
+    public Novelty<T> getNoveltyModel();
+
+    public Value<T> getValueModel();
+
 }

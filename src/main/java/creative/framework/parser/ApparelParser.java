@@ -17,7 +17,8 @@ import java.util.Map;
  */
 public class ApparelParser implements Parser<Apparel> {
 
-    Map<String, Integer> attributes;
+    private final Map<String, Integer> attributes;
+    private final Integer attributeCount;
 
     public ApparelParser() {
         attributes = new HashMap<>();
@@ -27,7 +28,7 @@ public class ApparelParser implements Parser<Apparel> {
         attributes.put("shirt:gray", index++);
         attributes.put("shirt:blue", index++);
         attributes.put("shirt:lilac", index++);
-       attributes.put("pants:white", index++);
+        attributes.put("pants:white", index++);
         attributes.put("pants:black", index++);
         attributes.put("pants:navy", index++);
         attributes.put("pants:gray", index++);
@@ -37,22 +38,26 @@ public class ApparelParser implements Parser<Apparel> {
         attributes.put("shoes:navy", index++);
         attributes.put("shoes:gray", index++);
         attributes.put("shoes:brown", index++);
-        
+        attributeCount = attributes.size();
+
     }
 
     @Override
     public Instance getInstance(Apparel artifact) {
-        Integer index;
-        double[] dataInstance = new double[attributes.size()];
+        // Integer index;
+        String attributeName;
+        double[] dataInstance = new double[attributeCount];
 
         for (ClothingItem item : artifact.getClothingItems()) {
-            String attributeName = item.getType() + ":" + item.getColor();
-            String toLowerCase = attributeName.toLowerCase();
-           
-            index = attributes.get(toLowerCase);
-            dataInstance[index]++;
+            attributeName = (item.getType() + ":" + item.getColor()).toLowerCase();
+            // index = attributes.get(attributeName);
+            dataInstance[attributes.get(attributeName)]++;
         }
         return new Instance(dataInstance);
+    }
+    
+    public Integer attributeCount(){
+        return attributeCount;
     }
 
 }

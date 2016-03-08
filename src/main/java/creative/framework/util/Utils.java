@@ -1,28 +1,20 @@
 package creative.framework.util;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 
 public class Utils {
 
-	
     /**
      * Return a BufferedReader
      *
      * @param fileDescription
      * @return
      */
-    public static BufferedReader getReader(String filePath) {
-        try {
-            return new BufferedReader(new FileReader(filePath));
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(Utils.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return null;
-
+    public BufferedReader getReader(String fileDescription) {
+        InputStream is = this.getClass().getResourceAsStream(fileDescription);
+        return new BufferedReader(new InputStreamReader(is));
     }
-    
+
 }

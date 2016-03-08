@@ -5,7 +5,8 @@ import java.util.List;
 
 /**
  *
- * @author Celso
+ * @author creapar team
+ *
  */
 public class Instance implements Comparable<Instance> {
 

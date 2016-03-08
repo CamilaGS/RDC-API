@@ -9,7 +9,7 @@ import org.apache.commons.math3.stat.descriptive.moment.Variance;
 
 /**
  *
- * @author Celso
+* @author creapar team
  */
 public class BayesianSurprise implements Novelty<Apparel> {
 

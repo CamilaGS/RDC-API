@@ -10,6 +10,7 @@ import creative.framework.data.Instance;
  * accordance with the application context needs.
  * 
  * @author creapar team
+ * @param <T>
  */
 public interface Parser<T>{
 
@@ -20,5 +21,7 @@ public interface Parser<T>{
 	 * @return
 	 */
     public Instance getInstance(T artifact);
+    
+    public Integer attributeCount();
 
 }

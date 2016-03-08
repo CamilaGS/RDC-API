@@ -9,6 +9,5 @@ package creative.framework.model;
  *
  * @author cel
  */
-public enum Type {
-    SHIRT, PANTS, SHOES;
+public abstract class Artifact {
 }
