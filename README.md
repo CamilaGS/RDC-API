@@ -48,9 +48,11 @@ When the parser loads the knowledge database, it computes the averages and varia
 
 ## How to run the RDC API:
 
-1. Download jar file;
-2. Open cmd prompt (windows) or shell (linux);
-3. Run command **java -jar rdcAPI.jar \<shirt color\> \<pants color\> \<shoes color\>**;
+1. Download files (to avoid jarfile corruption, get the rdcAPI.jar file using "Download Zip" option);
+2. Extract files;
+3. Open cmd prompt (windows) or shell (linux);
+4. Go to extracted files directory;
+4. Run command **java -jar rdcAPI.jar \<shirt color\> \<pants color\> \<shoes color\>**;
   
 ```  
 Possible values:
