@@ -58,4 +58,6 @@ Possible values:
 <shirt color>: "BLUE", "GRAY", "LILAC", "NAVY", "WHITE"
 <pants color>: "BLACK", "BROWN", "GRAY", "NAVY", "WHITE"
 <shoes color>: "BLACK", "BROWN", "GRAY", "NAVY", "WHITE"
+
+Example: java -jar rdcAPI.jar LILAC NAVY BROWN
 ```
