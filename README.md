@@ -48,7 +48,7 @@ Figure 7: Class diagram
 }
 ```
 
-When the parser loads the knowledge database, it computes the averages and variance of each attribute among all loaded artifacts. These information is necessary to the calculation of RDC metric. The two main classes in the Regent-Dependent creativity metric are: the SynergyValue class, responsible for calculating the value metric, in which the method getValue(T artifact) will return the synergistic value of the artifact given as parameter; and the BayesianSurprise class, responsible for calculating the novelty metric, by using the method getNovelty(T artifact). With a measure of novelty and value, the evaluateArtifact(Context context, Artifact artifact) method in ArtifactJudge class, judges how creative is an artifact in the specified context.
+When the parser loads the knowledge database, it computes the averages and variance of each attribute among all loaded artifacts. These information is necessary to the calculation of RDC metric. The two main classes in the Regent-Dependent creativity metric are: the SynergyValue class, responsible for calculating the value metric, in which the method *_getValue(T artifact)_* will return the synergistic value of the artifact given as parameter; and the BayesianSurprise class, responsible for calculating the novelty metric, by using the method *_getNovelty(T artifact)_*. With a measure of novelty and value, the *evaluateArtifact(Context context, Artifact artifact)_* method in ArtifactJudge class, judges how creative is an artifact in the specified context.
 
 ## How to run the RDC API:
 
