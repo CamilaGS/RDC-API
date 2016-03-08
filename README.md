@@ -30,13 +30,9 @@ A specialized parser is responsible for converting the encoded knowledge databas
 }
 ```
 
-Relations representing the synergy of the artifacts are structured as a map between each attribute and its respective synergistic attributes. These relations are illustrated in figure 3, describing the synergy among the colors and their clothing items. The API supports the synergistic relations to be represented as follows:
+Relations representing the synergy of the artifacts are structured as a map between each attribute and its respective synergistic attributes. These relations are illustrated below, describing the synergy among the colors and their clothing items. The API supports the synergistic relations to be represented as follows:
 
 ```
-1
-Source-code for the Regent Dependent Creativity API:
-https://github.com/CreaPar/rd-creativity-metric-api
-Figure 7: Class diagram
 {
 "WHITE":["NAVY", "BLACK", "BLUE", "GRAY", "LILAC", "BROWN"],
 "BLACK":["NAVY", "BROWN", "WHITE", "BLUE", "LILAC", "GRAY"],
