@@ -63,3 +63,7 @@ Possible values:
 
 Example: java -jar rdcAPI.jar LILAC NAVY BROWN
 ```
+
+### References
+
+http://dx.doi.org/10.13140/RG.2.2.31622.78403
