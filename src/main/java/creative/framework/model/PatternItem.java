@@ -1,11 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+package creative.framework.model;
 
-
-import java.awt.List;
+import java.util.List;
 
 /**
  *
@@ -26,21 +21,21 @@ public class PatternItem {
     int favoritesCount;
     int ratingCount;
     double ratingAverage;
-    List categories;
-    List needleSizes;
+    List<String> categories;
+    List<String> needleSizes;
     boolean photo;
     String craft;
     String yarnName;
     String yarnCompany;
     String published;
-    List tags;
+    List<String> tags;
     
 
     public void PatterenItem(int id, String name, int authorId, int projectCount, int difficultyCount,
     					double difficultyAverage, boolean free, double price, String currency,
     					int commentsCount, int favoritesCount, int ratingCount, double ratingAverage,
-    					List categories, List needleSizes, boolean photo, String craft,
-    					String yarnName, String yarnCompany, String published, List tags
+    					List<String> categories, List<String> needleSizes, boolean photo, String craft,
+    					String yarnName, String yarnCompany, String published, List<String> tags
     					) {
     	this.id = id;
     	this.name = name;
@@ -196,22 +191,22 @@ public class PatternItem {
 	}
 
 
-	public List getCategories() {
+	public List<String> getCategories() {
 		return categories;
 	}
 
 
-	public void setCategories(List categories) {
+	public void setCategories(List<String> categories) {
 		this.categories = categories;
 	}
 
 
-	public List getNeedleSizes() {
+	public List<String> getNeedleSizes() {
 		return needleSizes;
 	}
 
 
-	public void setNeedleSizes(List needleSizes) {
+	public void setNeedleSizes(List<String> needleSizes) {
 		this.needleSizes = needleSizes;
 	}
 
@@ -266,12 +261,12 @@ public class PatternItem {
 	}
 
 
-	public List getTags() {
+	public List<String> getTags() {
 		return tags;
 	}
 
 
-	public void setTags(List tags) {
+	public void setTags(List<String> tags) {
 		this.tags = tags;
 	}
 

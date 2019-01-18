@@ -1,10 +1,15 @@
 package creative.framework.main;
 
 import creative.framework.model.Apparel;
-import creative.framework.model.Artifact;
-import creative.framework.model.ClothingItem;
-import creative.framework.model.Color;
+
+import creative.framework.model.PatternItem;
 import creative.framework.model.Type;
+
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -43,6 +48,119 @@ public class Main {
 
     }
 
+    public static void readFile(){
+    	String csvFile = "pattern.csv";
+        BufferedReader br = null;
+        String line = "";
+        String cvsSplitBy = ";";
+        List<PatternItem> patternList = new ArrayList<>();
+        
+        try {
+            br = new BufferedReader(new FileReader(csvFile));
+            while ((line = br.readLine()) != null) {
+
+            	String id;
+                String authorId;
+                List<String> categories = new ArrayList<>();
+                String craft;
+                String yarnCompany;
+                String published;
+                List<String> tags = new ArrayList<>();
+            	int i = 0;
+            	
+                // use comma as separator
+                String[] patternData = line.split(cvsSplitBy);
+
+                // Id
+                id = patternData[i];
+                i++;
+                // Name
+                i++;
+                // Author id
+                authorId = patternData[i];
+                i++;
+                // Proj. count
+                i++;
+                // Diff. count
+                i++;
+                // Diff.average
+                i++;
+                // Free
+                i++;
+                // Price
+                i++;
+                // Currency
+                i++;
+                // Comments count
+                i++;
+                // Favorites count
+                i++;
+                // Rating average
+                i++;
+                // Categories
+                String categoriesSplitBy = ",";
+                String[] categoriesSplited = patternData[i].split(categoriesSplitBy);
+                for(int j = 0; j < categoriesSplited.length; j++){
+                	String category = categoriesSplited[j].replaceAll("\"", "");
+                	category = categoriesSplited[j].replaceAll("[", "");
+                	category = categoriesSplited[j].replaceAll("]", "");
+                	categories.add(category);
+                }
+                i++;
+                // Needle sizes
+                i++;
+                // Photo
+                i++;
+                // Craft
+                craft = patternData[i];
+                i++;
+                // Yarn name
+                i++;
+                // Yarn Company
+                yarnCompany = patternData[i];
+                i++;
+                // Published
+                published = patternData[i];
+                i++;
+                // Tags
+                String tagsSplitBy = ",";
+                String[] tagsSplited = patternData[i].split(tagsSplitBy);
+                for(int j = 0; j < tagsSplited.length; j++){
+                	String tag = tagsSplited[j].replaceAll("\"", "");
+                	tag = tagsSplited[j].replaceAll("[", "");
+                	tag = tagsSplited[j].replaceAll("]", "");
+                	tags.add(tag);
+                }
+                i++;
+                
+                // Add attributes to pattern
+                PatternItem pattern = new PatternItem();
+                pattern.setAuthorId(Integer.parseInt(authorId));
+                pattern.setCategories(categories);
+                pattern.setCraft(craft);
+                pattern.setId(Integer.parseInt(id));
+                pattern.setYarnCompany(yarnCompany);
+                pattern.setPublished(published);
+                pattern.setTags(tags);
+                
+                // Add pattern to list
+                patternList.add(pattern);
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            if (br != null) {
+                try {
+                    br.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+    
     /**
      * Run Apparel Example
      *

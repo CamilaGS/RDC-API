@@ -7,7 +7,7 @@ package creative.framework.parser;
 
 import creative.framework.data.Instance;
 import creative.framework.model.Apparel;
-import creative.framework.model.ClothingItem;
+import creative.framework.model.PatternItem;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -42,13 +42,14 @@ public class ApparelParser implements Parser<Apparel> {
 
     }
 
+    /*
     @Override
     public Instance getInstance(Apparel artifact) {
         // Integer index;
         String attributeName;
         double[] dataInstance = new double[attributeCount];
 
-        for (ClothingItem item : artifact.getClothingItems()) {
+        for (PatternItem item : artifact.getClothingItems()) {
             attributeName = (item.getType() + ":" + item.getColor()).toLowerCase();
             // index = attributes.get(attributeName);
             dataInstance[attributes.get(attributeName)]++;
@@ -59,5 +60,5 @@ public class ApparelParser implements Parser<Apparel> {
     public Integer attributeCount(){
         return attributeCount;
     }
-
+     */
 }
