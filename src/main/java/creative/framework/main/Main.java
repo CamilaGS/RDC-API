@@ -1,7 +1,7 @@
 package creative.framework.main;
 
 import creative.framework.model.Apparel;
-
+import creative.framework.model.Artifact;
 import creative.framework.model.PatternItem;
 import creative.framework.model.Type;
 
@@ -15,6 +15,13 @@ import java.util.List;
 
 public class Main {
 
+	// Global variables
+	public static List<String> authorIds;
+	public static List<String> categories;
+	public static List<String> crafts;
+	public static List<String> yarns;
+	public static List<String> tags;
+	
     /**
      * Main
      *
@@ -24,17 +31,29 @@ public class Main {
         if (args.length < 3) {
             System.out.println("Insufficient number of arguments. \nEnter a colors to shirt, pants and shoes (in that order).");
         } else {
-            List<String> shirtColors = Arrays.asList("BLUE", "GRAY", "LILAC", "NAVY", "WHITE", "blue", "gray", "lilac", "navy", "white");
-            List<String> pantsColors = Arrays.asList("BLACK", "BROWN", "GRAY", "NAVY", "WHITE", "black", "brown", "gray", "navy", "white");
-            List<String> shoesColors = Arrays.asList("BLACK", "BROWN", "GRAY", "NAVY", "WHITE", "black", "brown", "gray", "navy", "white");
-
-            String color1 = args[0].toUpperCase();
+            //List<String> shirtColors = Arrays.asList("BLUE", "GRAY", "LILAC", "NAVY", "WHITE", "blue", "gray", "lilac", "navy", "white");
+            //List<String> pantsColors = Arrays.asList("BLACK", "BROWN", "GRAY", "NAVY", "WHITE", "black", "brown", "gray", "navy", "white");
+            //List<String> shoesColors = Arrays.asList("BLACK", "BROWN", "GRAY", "NAVY", "WHITE", "black", "brown", "gray", "navy", "white");
+        	
+        	// Initialize variables
+        	authorIds = new ArrayList<String>();
+        	categories = new ArrayList<String>();
+        	crafts = new ArrayList<String>();
+        	yarns = new ArrayList<String>();
+        	tags = new ArrayList<String>();
+        	List<PatternItem> patternList = new ArrayList<PatternItem>();
+        	
+        	// Read patterns file
+        	patternList = readFile(patternList);
+        	
+        	// 
+            /*String color1 = args[0].toUpperCase();
             String color2 = args[1].toUpperCase();
             String color3 = args[2].toUpperCase();
             if (shirtColors.contains(color1)) {
                 if (pantsColors.contains(color2)) {
                     if (shoesColors.contains(color3)) {
-                        apparelExample(color1, color2, color3);
+                        //apparelExample(color1, color2, color3);
                     } else {
                         System.out.println(color3 + " is not a color to shoes");
                     }
@@ -43,17 +62,16 @@ public class Main {
                 }
             } else {
                 System.out.println(color1 + " is not a color to shirt");
-            }
+            }*/
         }
 
     }
 
-    public static void readFile(){
+    public static List<PatternItem> readFile(List<PatternItem> patternList){
     	String csvFile = "pattern.csv";
         BufferedReader br = null;
         String line = "";
         String cvsSplitBy = ";";
-        List<PatternItem> patternList = new ArrayList<>();
         
         try {
             br = new BufferedReader(new FileReader(csvFile));
@@ -61,11 +79,11 @@ public class Main {
 
             	String id;
                 String authorId;
-                List<String> categories = new ArrayList<>();
+                List<String> categoriesFromPattern = new ArrayList<>();
                 String craft;
                 String yarnCompany;
                 String published;
-                List<String> tags = new ArrayList<>();
+                List<String> tagsFromPattern = new ArrayList<>();
             	int i = 0;
             	
                 // use comma as separator
@@ -78,6 +96,9 @@ public class Main {
                 i++;
                 // Author id
                 authorId = patternData[i];
+                if(!authorIds.contains(authorId)){
+                	authorIds.add(authorId);
+                }
                 i++;
                 // Proj. count
                 i++;
@@ -104,7 +125,11 @@ public class Main {
                 	String category = categoriesSplited[j].replaceAll("\"", "");
                 	category = categoriesSplited[j].replaceAll("[", "");
                 	category = categoriesSplited[j].replaceAll("]", "");
-                	categories.add(category);
+                	categoriesFromPattern.add(category);
+                	// Check if exists in list
+                	if(!categories.contains(category)){
+                		categories.add(category);
+                	}
                 }
                 i++;
                 // Needle sizes
@@ -113,11 +138,17 @@ public class Main {
                 i++;
                 // Craft
                 craft = patternData[i];
+                if(!crafts.contains(craft)){
+                	crafts.add(craft);
+                }
                 i++;
                 // Yarn name
                 i++;
                 // Yarn Company
                 yarnCompany = patternData[i];
+                if(!yarns.contains(yarnCompany)){
+                	yarns.add(yarnCompany);
+                }
                 i++;
                 // Published
                 published = patternData[i];
@@ -129,7 +160,11 @@ public class Main {
                 	String tag = tagsSplited[j].replaceAll("\"", "");
                 	tag = tagsSplited[j].replaceAll("[", "");
                 	tag = tagsSplited[j].replaceAll("]", "");
-                	tags.add(tag);
+                	tagsFromPattern .add(tag);
+                	
+                	if(!tags.contains(tags)){
+                		tags.add(tag);
+                	}
                 }
                 i++;
                 
@@ -159,6 +194,8 @@ public class Main {
                 }
             }
         }
+        
+        return patternList;
     }
     
     /**
@@ -169,9 +206,11 @@ public class Main {
      * @param color3 - shoes color
      */
     public static void apparelExample(
-            String color1,
-            String color2,
-            String color3) {
+            String authorId,
+            List<String> categoriesFromPatern,
+            String craft,
+            String yarnCompany,
+            List<String> tagsFromPattern) {
 
         // a context which the artifact is evalutated
         ArtifactContext<Apparel> context = new ApparelContext(
@@ -183,13 +222,16 @@ public class Main {
         ArtifactJudge judge = new ApparelJudge();
 
         // some clothing items
-        List<ClothingItem> clothingItem = Arrays.asList(
+        /*List<ClothingItem> clothingItem = Arrays.asList(
                 new ClothingItem(Type.SHIRT, Color.valueOf(color1)), // a navy shirt
                 new ClothingItem(Type.PANTS, Color.valueOf(color2)), // pants white
                 new ClothingItem(Type.SHOES, Color.valueOf(color3))); // shoes brown
-
+         */
+        
+        List<PatternItem> patternItem = new ArrayList<PatternItem>();
+        
         // an artifact to be evaluated
-        Artifact artifact = new Apparel(clothingItem);
+        Artifact artifact = new Apparel(patternItem);
         System.out.println(artifact.toString());
 
         // show the evaluation of an artifact

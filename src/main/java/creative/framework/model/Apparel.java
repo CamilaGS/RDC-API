@@ -13,31 +13,31 @@ import java.util.List;
  */
 public class Apparel extends Artifact {
 
-    List<ClothingItem> clothingItems;
+    List<PatternItem> patternItems;
 
     public Apparel() {
     }
 
-    public Apparel(List<ClothingItem> clothingItems) {
-        this.clothingItems = clothingItems;
+    public Apparel(List<PatternItem> patternItems) {
+        this.patternItems = patternItems;
     }
 
-    public List<ClothingItem> getClothingItems() {
-        return clothingItems;
+    public List<PatternItem> getClothingItems() {
+        return patternItems;
     }
 
-    public void setClothingItems(List<ClothingItem> clothingItems) {
-        this.clothingItems = clothingItems;
+    public void setClothingItems(List<PatternItem> patternItems) {
+        this.patternItems = patternItems;
     }
 
-    @Override
+    /*@Override
     public String toString() {
         StringBuilder apparel = new StringBuilder();
         apparel.append("\nApparel Items:\n");
-        for (ClothingItem item : clothingItems) {
+        for (CItem item : clothingItems) {
             apparel.append(item.getType()).append(":").append(item.getColor()).append("\n");
         }
         return apparel.toString();
-    }
+    }*/
 
 }

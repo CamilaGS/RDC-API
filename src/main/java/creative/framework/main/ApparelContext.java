@@ -9,7 +9,6 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import creative.framework.data.Dataset;
 import creative.framework.model.Apparel;
-import creative.framework.model.Color;
 import creative.framework.novelty.BayesianSurprise;
 import creative.framework.novelty.Novelty;
 import creative.framework.parser.ApparelParser;
@@ -36,7 +35,7 @@ public class ApparelContext implements ArtifactContext<Apparel> {
     Dataset dataset;
     Parser parser;
     Double lambda;
-    Map<Color, List<Color>> colorSynergy;
+    Map<String, List<String>> colorSynergy;
     Utils utils;
 
     public ApparelContext(String datasetFileDescription, String synergyFileDescription) {
@@ -63,10 +62,10 @@ public class ApparelContext implements ArtifactContext<Apparel> {
         return new SynergyValue(colorSynergy);
     }
 
-    private Map<Color, List<Color>> getApparelSynergy(String synergyFileDescription) {
+    private Map<String, List<String>> getApparelSynergy(String synergyFileDescription) {
         Gson gson = new Gson();
 
-        Type synergyType = new TypeToken< HashMap<Color, List<Color>>>() {
+        Type synergyType = new TypeToken< HashMap<String, List<String>>>() {
         }.getType();
         return gson.fromJson(utils.getReader(synergyFileDescription), synergyType);
 

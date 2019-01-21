@@ -6,8 +6,7 @@
 package creative.framework.value;
 
 import creative.framework.model.Apparel;
-import creative.framework.model.ClothingItem;
-import creative.framework.model.Color;
+import creative.framework.model.PatternItem;
 import edu.uci.ics.jung.algorithms.shortestpath.DijkstraShortestPath;
 import edu.uci.ics.jung.graph.Graph;
 import edu.uci.ics.jung.graph.SparseMultigraph;
@@ -21,10 +20,10 @@ import java.util.Map;
  */
 public class SynergyValue implements Value<Apparel> {
 
-    Map<Color, List<Color>> colorSynergy;
-    Graph<ClothingItem, Integer> graph;
+    Map<String, List<String>> colorSynergy;
+    Graph<PatternItem, Integer> graph;
 
-    public SynergyValue(Map<Color, List<Color>> colorSynergy) {
+    public SynergyValue(Map<String, List<String>> colorSynergy) {
         this.colorSynergy = colorSynergy;
     }
     
@@ -48,18 +47,18 @@ public class SynergyValue implements Value<Apparel> {
      * @param artifact
      */
     private void addVertex(Apparel artifact) {
-        for (ClothingItem item : artifact.getClothingItems()) {
+        for (PatternItem item : artifact.getClothingItems()) {
             graph.addVertex(item);
         }
     }
 
     private void addEdges(Apparel artifact) {
         Integer edges = 0;
-        Color uColor, vColor;
+        String uColor, vColor;
 
-        for (ClothingItem u : artifact.getClothingItems()) {
+        for (PatternItem u : artifact.getClothingItems()) {
             uColor = u.getColor();
-            for (ClothingItem v : artifact.getClothingItems()) {
+            for (PatternItem v : artifact.getClothingItems()) {
                 vColor = v.getColor();
                 if (isSynergic(uColor, vColor)) {
                     graph.addEdge(edges++, u, v);
@@ -71,12 +70,12 @@ public class SynergyValue implements Value<Apparel> {
     }
 
     private Double kc() {
-        DijkstraShortestPath<ClothingItem, Integer> djk = new DijkstraShortestPath(graph);
-        Collection<ClothingItem> vertices = graph.getVertices();
+        DijkstraShortestPath<PatternItem, Integer> djk = new DijkstraShortestPath(graph);
+        Collection<PatternItem> vertices = graph.getVertices();
         int vertexCount = graph.getVertexCount();
         int paths = 0;
-        for (ClothingItem v1 : vertices) {
-            for (ClothingItem v2 : vertices) {
+        for (PatternItem v1 : vertices) {
+            for (PatternItem v2 : vertices) {
                 if (!v1.equals(v2)) {
                     if (djk.getDistance(v1, v2) != null) {
                         paths++;
@@ -93,7 +92,7 @@ public class SynergyValue implements Value<Apparel> {
         return 1.0 * e / (n * (n - 1));
     }
 
-    private boolean isSynergic(Color uColor, Color vColor) {
+    private boolean isSynergic(String uColor, String vColor) {
         return colorSynergy.get(vColor).contains(uColor);
     }
 

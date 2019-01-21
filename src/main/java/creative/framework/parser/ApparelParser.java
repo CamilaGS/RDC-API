@@ -21,8 +21,10 @@ public class ApparelParser implements Parser<Apparel> {
     private final Integer attributeCount;
 
     public ApparelParser() {
+    	
         attributes = new HashMap<>();
         Integer index = 0;
+        /*
         attributes.put("shirt:white", index++);
         attributes.put("shirt:navy", index++);
         attributes.put("shirt:gray", index++);
@@ -38,9 +40,21 @@ public class ApparelParser implements Parser<Apparel> {
         attributes.put("shoes:navy", index++);
         attributes.put("shoes:gray", index++);
         attributes.put("shoes:brown", index++);
-        attributeCount = attributes.size();
-
+        attributeCount = attributes.size();*/
+        attributeCount = 0;
     }
+
+	@Override
+	public Instance getInstance(Apparel artifact) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Integer attributeCount() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
     /*
     @Override
