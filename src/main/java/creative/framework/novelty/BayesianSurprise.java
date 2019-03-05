@@ -1,7 +1,7 @@
 package creative.framework.novelty;
 
 import creative.framework.data.Instance;
-import creative.framework.model.Apparel;
+import creative.framework.model.Pattern;
 import creative.framework.parser.Parser;
 import java.util.List;
 import org.apache.commons.math3.stat.descriptive.moment.Mean;
@@ -11,7 +11,7 @@ import org.apache.commons.math3.stat.descriptive.moment.Variance;
  *
 * @author creapar team
  */
-public class BayesianSurprise implements Novelty<Apparel> {
+public class BayesianSurprise implements Novelty<Pattern> {
 
     List<Mean> means;
     List<Variance> variances;
@@ -33,7 +33,7 @@ public class BayesianSurprise implements Novelty<Apparel> {
     }
 
     @Override
-    public Double getNovelty(Apparel artifact) {
+    public Double getNovelty(Pattern artifact) {
         Instance instance = parser.getInstance(artifact);
         double surprise = 0.0;
         Double varianceResult;
@@ -95,7 +95,7 @@ public class BayesianSurprise implements Novelty<Apparel> {
     }
 
     @Override
-    public void updateNovelty(Apparel artifact) {
+    public void updateNovelty(Pattern artifact) {
         Instance instance = parser.getInstance(artifact);
         Double d;
         List<Double> data = instance.getAttributes();

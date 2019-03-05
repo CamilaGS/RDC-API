@@ -1,0 +1,609 @@
+[{
+		"id": 85,
+		"patternItems": [{
+				"type": "category",
+				"attribute": "'Hands','Accessories','Categories'"
+			},
+			{
+				"type": "yarn",
+				"attribute": "Alpaca Silk"
+			},
+			{
+				"type": "tag",
+				"attribute": "'eyelets','written-pattern'"
+			}
+		]
+	},
+	{
+		"id": 282,
+		"patternItems": [{
+				"type": "category",
+				"attribute": "'Neck / Torso','Accessories','Categories'"
+			},
+			{
+				"type": "yarn",
+				"attribute": "Alpaca Silk"
+			},
+			{
+				"type": "tag",
+				"attribute": "'female','teen','adult','lace','textured','kitchener','rectangle','chart','written-pattern','worked-flat'"
+			}
+		]
+	},
+	{
+		"id": 342,
+		"patternItems": [{
+				"type": "category",
+				"attribute": "'Neck / Torso','Accessories','Categories'"
+			},
+			{
+				"type": "yarn",
+				"attribute": "Alpaca Silk"
+			},
+			{
+				"type": "tag",
+				"attribute": "'lace','reversible','seamless','rectangle','written-pattern','worked-flat'"
+			}
+		]
+	},
+	{
+		"id": 872,
+		"patternItems": [{
+				"type": "category",
+				"attribute": "'Clothing','Categories'"
+			},
+			{
+				"type": "yarn",
+				"attribute": "Alpaca Silk"
+			},
+			{
+				"type": "tag",
+				"attribute": "'female','adult','negative-ease','plus','no-ease','lace','buttonholes','chart','written-pattern'"
+			}
+		]
+	},
+	{
+		"id": 1011,
+		"patternItems": [{
+				"type": "category",
+				"attribute": "'Neck / Torso','Accessories','Categories'"
+			},
+			{
+				"type": "yarn",
+				"attribute": "Alpaca Silk"
+			},
+			{
+				"type": "tag",
+				"attribute": "'female','lace','one-piece','rectangle','worked-flat','crocheted-edging','teen','adult','written-pattern'"
+			}
+		]
+	},
+	{
+		"id": 1012,
+		"patternItems": [{
+				"type": "category",
+				"attribute": "'Clothing','Categories'"
+			},
+			{
+				"type": "yarn",
+				"attribute": "Alpaca Silk"
+			},
+			{
+				"type": "tag",
+				"attribute": "'female','adult','oversized','ribbed','seamed','long-sleeve','ruffles','one-piece','positive-ease','written-pattern'"
+			}
+		]
+	},
+	{
+		"id": 1285,
+		"patternItems": [{
+				"type": "category",
+				"attribute": "'Sweater','Clothing','Categories'"
+			},
+			{
+				"type": "yarn",
+				"attribute": "Alpaca Silk"
+			},
+			{
+				"type": "tag",
+				"attribute": "'female','adult','fitted','cables','eyelets','seamed','crew-neck','3-4-sleeve','set-in-sleeve','buttoned','asymmetric','bottom-up','positive-ease','chart','written-pattern','worked-flat','other-edging'"
+			}
+		]
+	},
+	{
+		"id": 1308,
+		"patternItems": [{
+				"type": "category",
+				"attribute": "'Neck / Torso','Accessories','Categories'"
+			},
+			{
+				"type": "yarn",
+				"attribute": "Alpaca Silk"
+			},
+			{
+				"type": "tag",
+				"attribute": "'lace','textured','rectangle'"
+			}
+		]
+	},
+	{
+		"id": 1497,
+		"patternItems": [{
+				"type": "category",
+				"attribute": "'Bag','Accessories','Categories'"
+			},
+			{
+				"type": "yarn",
+				"attribute": "Alpaca Silk"
+			},
+			{
+				"type": "tag",
+				"attribute": "'unisex','eyelets','seamless','bottom-up','rectangle','written-pattern','in-the-round'"
+			}
+		]
+	},
+	{
+		"id": 2004,
+		"patternItems": [{
+				"type": "category",
+				"attribute": "'Neck / Torso','Accessories','Categories'"
+			},
+			{
+				"type": "yarn",
+				"attribute": "Alpaca Silk"
+			},
+			{
+				"type": "tag",
+				"attribute": "'unisex','child','teen','adult','cables','ribbed'"
+			}
+		]
+	},
+	{
+		"id": 3492,
+		"patternItems": [{
+				"type": "category",
+				"attribute": "'Tops','Clothing','Categories'"
+			},
+			{
+				"type": "yarn",
+				"attribute": "Cotton Braid"
+			},
+			{
+				"type": "tag",
+				"attribute": "'female','mesh','ballet-neck','cap-sleeve','seamless','top-down','written-pattern','in-the-round'"
+			}
+		]
+	},
+	{
+		"id": 6213,
+		"patternItems": [{
+				"type": "category",
+				"attribute": "'Tops','Clothing','Categories'"
+			},
+			{
+				"type": "yarn",
+				"attribute": "Cotton Braid"
+			},
+			{
+				"type": "tag",
+				"attribute": "'female','adult','hood','seamed','v-neck','bottom-up','worked-flat'"
+			}
+		]
+	},
+	{
+		"id": 9034,
+		"patternItems": [{
+				"type": "category",
+				"attribute": "'Tops','Clothing','Categories'"
+			},
+			{
+				"type": "yarn",
+				"attribute": "Cotton Braid"
+			},
+			{
+				"type": "tag",
+				"attribute": "'female','adult','no-ease','fitted','stripes','textured','seamed','v-neck','sleeveless','bottom-up','written-pattern','worked-flat','stripes-colorwork'"
+			}
+		]
+	},
+	{
+		"id": 23,
+		"patternItems": [{
+				"type": "category",
+				"attribute": "'Neck / Torso','Accessories','Categories'"
+			},
+			{
+				"type": "yarn",
+				"attribute": "Cotton Braid"
+			},
+			{
+				"type": "tag",
+				"attribute": "'unisex','adult','seamed','asymmetric','written-pattern','worked-flat'"
+			}
+		]
+	},
+	{
+		"id": 30,
+		"patternItems": [{
+				"type": "category",
+				"attribute": "'Components','Categories'"
+			},
+			{
+				"type": "yarn",
+				"attribute": "Cotton Braid"
+			},
+			{
+				"type": "tag",
+				"attribute": "'female','teen','adult','textured','seamed','written-pattern','worked-flat'"
+			}
+		]
+	},
+	{
+		"id": 55,
+		"patternItems": [{
+				"type": "category",
+				"attribute": "'Socks','Feet / Legs','Accessories','Categories'"
+			},
+			{
+				"type": "yarn",
+				"attribute": "Gems Pearl"
+			},
+			{
+				"type": "tag",
+				"attribute": "'female','unisex','adult','negative-ease','fitted','top-cuff-down','heel-flap','noshaping','eyelets','lace','chart','written-pattern','in-the-round'"
+			}
+		]
+	},
+	{
+		"id": 71,
+		"patternItems": [{
+				"type": "category",
+				"attribute": "'Hands','Accessories','Categories'"
+			},
+			{
+				"type": "yarn",
+				"attribute": "Gems Pearl"
+			},
+			{
+				"type": "tag",
+				"attribute": "'unisex','teen','adult','negative-ease','ribbed','stranded','one-piece','seamless','chart','written-pattern','in-the-round','gusset'"
+			}
+		]
+	},
+	{
+		"id": 92,
+		"patternItems": [{
+				"type": "category",
+				"attribute": "'Hands','Accessories','Categories'"
+			},
+			{
+				"type": "yarn",
+				"attribute": "Gems Pearl"
+			},
+			{
+				"type": "tag",
+				"attribute": "'adult','stranded','bottom-up','chart','in-the-round','unisex','ribbed','seamless','provisional'"
+			}
+		]
+	},
+	{
+		"id": 293,
+		"patternItems": [{
+				"type": "category",
+				"attribute": "'Socks','Feet / Legs','Accessories','Categories'"
+			},
+			{
+				"type": "yarn",
+				"attribute": "Gems Pearl"
+			},
+			{
+				"type": "tag",
+				"attribute": "'male','female','teen','adult','fitted','top-cuff-down','heel-flap','cables','ribbed','one-piece','seamless','top-down','irish','chart','written-pattern','in-the-round','gusset'"
+			}
+		]
+	},
+	{
+		"id": 436,
+		"patternItems": [{
+				"type": "category",
+				"attribute": "'Socks','Feet / Legs','Accessories','Categories'"
+			},
+			{
+				"type": "yarn",
+				"attribute": "Gems Pearl"
+			},
+			{
+				"type": "tag",
+				"attribute": "'heel-flap','other-toe','top-cuff-down','lace'"
+			}
+		]
+	},
+	{
+		"id": 437,
+		"patternItems": [{
+				"type": "category",
+				"attribute": "'Socks','Feet / Legs','Accessories','Categories'"
+			},
+			{
+				"type": "yarn",
+				"attribute": "Gems Pearl"
+			},
+			{
+				"type": "tag",
+				"attribute": "'male','unisex','adult','top-cuff-down','heel-flap','ribbed','textured','kitchener','short-rows','star-toe','chart','written-pattern','in-the-round','gusset','shaped-arches'"
+			}
+		]
+	},
+	{
+		"id": 445,
+		"patternItems": [{
+				"type": "category",
+				"attribute": "'Socks','Feet / Legs','Accessories','Categories'"
+			},
+			{
+				"type": "yarn",
+				"attribute": "Gems Pearl"
+			},
+			{
+				"type": "tag",
+				"attribute": "'adult','top-cuff-down','dutch-heel','wide-toe','written-pattern','in-the-round','gusset'"
+			}
+		]
+	},
+	{
+		"id": 485,
+		"patternItems": [{
+				"type": "category",
+				"attribute": "'Sweater','Clothing','Categories'"
+			},
+			{
+				"type": "yarn",
+				"attribute": "Gems Pearl"
+			},
+			{
+				"type": "tag",
+				"attribute": "'unisex','baby','textured','collar','set-in-sleeve','buttonholes','bottom-up','written-pattern','video-tutorial'"
+			}
+		]
+	},
+	{
+		"id": 581,
+		"patternItems": [{
+				"type": "category",
+				"attribute": "'Socks','Feet / Legs','Accessories','Categories'"
+			},
+			{
+				"type": "yarn",
+				"attribute": "Gems Pearl"
+			},
+			{
+				"type": "tag",
+				"attribute": "'teen','adult','top-cuff-down','heel-flap','lace','kitchener','wide-toe','chart','written-pattern','in-the-round'"
+			}
+		]
+	},
+	{
+		"id": 582,
+		"patternItems": [{
+				"type": "category",
+				"attribute": "'Socks','Feet / Legs','Accessories','Categories'"
+			},
+			{
+				"type": "yarn",
+				"attribute": "Gems Pearl"
+			},
+			{
+				"type": "tag",
+				"attribute": "'female','unisex','top-cuff-down','heel-flap','lace','ribbed','chart','written-pattern'"
+			}
+		]
+	},
+	{
+		"id": 419,
+		"patternItems": [{
+				"type": "category",
+				"attribute": "'Socks','Feet / Legs','Accessories','Categories'"
+			},
+			{
+				"type": "yarn",
+				"attribute": "Footpath"
+			},
+			{
+				"type": "tag",
+				"attribute": "'female','adult','top-cuff-down','ribbed','kitchener','star-toe','written-pattern','in-the-round'"
+			}
+		]
+	},
+	{
+		"id": 428,
+		"patternItems": [{
+				"type": "category",
+				"attribute": "'Socks','Feet / Legs','Accessories','Categories'"
+			},
+			{
+				"type": "yarn",
+				"attribute": "Footpath"
+			},
+			{
+				"type": "tag",
+				"attribute": "'unisex','adult','top-cuff-down','heel-flap','ribbed','kitchener','written-pattern','in-the-round'"
+			}
+		]
+	},
+	{
+		"id": 426,
+		"patternItems": [{
+				"type": "category",
+				"attribute": "'Socks','Feet / Legs','Accessories','Categories'"
+			},
+			{
+				"type": "yarn",
+				"attribute": "Footpath"
+			},
+			{
+				"type": "tag",
+				"attribute": "'female','unisex','adult','negative-ease','top-cuff-down','heel-flap','ribbed','star-toe','written-pattern','in-the-round','gusset'"
+			}
+		]
+	},
+	{
+		"id": 433,
+		"patternItems": [{
+				"type": "category",
+				"attribute": "'Socks','Feet / Legs','Accessories','Categories'"
+			},
+			{
+				"type": "yarn",
+				"attribute": "Footpath"
+			},
+			{
+				"type": "tag",
+				"attribute": "'top-cuff-down','heel-flap','stranded','star-toe','gusset'"
+			}
+		]
+	},
+	{
+		"id": 416,
+		"patternItems": [{
+				"type": "category",
+				"attribute": "'Socks','Feet / Legs','Accessories','Categories'"
+			},
+			{
+				"type": "yarn",
+				"attribute": "Yorkshire Tweed 4 Ply"
+			},
+			{
+				"type": "tag",
+				"attribute": "'female','adult','top-cuff-down','lace','textured','in-the-round'"
+			}
+		]
+	},
+	{
+		"id": 466,
+		"patternItems": [{
+				"type": "category",
+				"attribute": "'Sweater','Clothing','Categories'"
+			},
+			{
+				"type": "yarn",
+				"attribute": "Yorkshire Tweed 4 Ply"
+			},
+			{
+				"type": "tag",
+				"attribute": "'textured','collar','long-sleeve','set-in-sleeve','buttoned','peplum','cuffed-sleeve','worked-flat','female','adult','fitted','beads'"
+			}
+		]
+	},
+	{
+		"id": 4322,
+		"patternItems": [{
+				"type": "category",
+				"attribute": "'Hat','Accessories','Categories'"
+			},
+			{
+				"type": "yarn",
+				"attribute": "Yorkshire Tweed 4 Ply"
+			},
+			{
+				"type": "tag",
+				"attribute": "'female','teen','adult','ribbed','seamed','stranded','chart','written-pattern','fairisle','worked-flat'"
+			}
+		]
+	},
+	{
+		"id": 5068,
+		"patternItems": [{
+				"type": "category",
+				"attribute": "'Sweater','Clothing','Categories'"
+			},
+			{
+				"type": "yarn",
+				"attribute": "Yorkshire Tweed 4 Ply"
+			},
+			{
+				"type": "tag",
+				"attribute": "'female','adult','collar','v-neck','sleeves','long-sleeve','set-in-sleeve','tied','bottom-up','positive-ease','written-pattern','cuffed-sleeve','worked-flat','stripes-colorwork'"
+			}
+		]
+	},
+	{
+		"id": 5582,
+		"patternItems": [{
+				"type": "category",
+				"attribute": "'Hat','Accessories','Categories'"
+			},
+			{
+				"type": "yarn",
+				"attribute": "Yorkshire Tweed 4 Ply"
+			},
+			{
+				"type": "tag",
+				"attribute": "'female','adult','fitted','beads','ribbed','seamed','one-piece','bottom-up','written-pattern','worked-flat','teen'"
+			}
+		]
+	},
+	{
+		"id": 5837,
+		"patternItems": [{
+				"type": "category",
+				"attribute": "'Sweater','Clothing','Categories'"
+			},
+			{
+				"type": "yarn",
+				"attribute": "Yorkshire Tweed 4 Ply"
+			},
+			{
+				"type": "tag",
+				"attribute": "'female','adult','lace','stripes','seamed','crew-neck','long-sleeve','set-in-sleeve','Intarsia','bottom-up','chart','written-pattern','worked-flat'"
+			}
+		]
+	},
+	{
+		"id": 8097,
+		"patternItems": [{
+				"type": "category",
+				"attribute": "'Sweater','Clothing','Categories'"
+			},
+			{
+				"type": "yarn",
+				"attribute": "Yorkshire Tweed 4 Ply"
+			},
+			{
+				"type": "tag",
+				"attribute": "'female','adult','fitted','seamed','v-neck','sleeves','long-sleeve','set-in-sleeve','buttoned','stranded','buttonholes','bottom-up','chart','written-pattern','worked-flat'"
+			}
+		]
+	},
+	{
+		"id": 9062,
+		"patternItems": [{
+				"type": "category",
+				"attribute": "'Clothing','Categories'"
+			},
+			{
+				"type": "yarn",
+				"attribute": "Yorkshire Tweed 4 Ply"
+			},
+			{
+				"type": "tag",
+				"attribute": "'female','adult','fitted','lace','tied','bottom-up','written-pattern','granny-square','in-the-round','motifs'"
+			}
+		]
+	},
+	{
+		"id": 9895,
+		"patternItems": [{
+				"type": "category",
+				"attribute": "'Toys and Hobbies','Categories'"
+			},
+			{
+				"type": "yarn",
+				"attribute": "Yorkshire Tweed 4 Ply"
+			},
+			{
+				"type": "tag",
+				"attribute": "'doll-size','seamed','bottom-up','written-pattern','worked-flat'"
+			}
+		]
+	}
+]

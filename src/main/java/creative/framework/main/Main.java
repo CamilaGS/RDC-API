@@ -1,12 +1,22 @@
 package creative.framework.main;
 
-import creative.framework.model.Apparel;
-import creative.framework.model.Artifact;
-import creative.framework.model.ClothingItem;
-import creative.framework.model.Color;
-import creative.framework.model.Type;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
+import org.json.simple.JSONObject;
+import org.json.simple.JSONArray;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
+
+import creative.framework.model.Artifact;
+import creative.framework.model.Attribute;
+import creative.framework.model.Pattern;
+import creative.framework.model.PatternItem;
+import creative.framework.model.TypeAttribute;
 
 public class Main {
 
@@ -14,64 +24,104 @@ public class Main {
      * Main
      *
      * @param args
+     * @throws ParseException 
+     * @throws IOException 
+     * @throws FileNotFoundException 
      */
-    public static void main(String[] args) {
-        if (args.length < 3) {
-            System.out.println("Insufficient number of arguments. \nEnter a colors to shirt, pants and shoes (in that order).");
-        } else {
-            List<String> shirtColors = Arrays.asList("BLUE", "GRAY", "LILAC", "NAVY", "WHITE", "blue", "gray", "lilac", "navy", "white");
-            List<String> pantsColors = Arrays.asList("BLACK", "BROWN", "GRAY", "NAVY", "WHITE", "black", "brown", "gray", "navy", "white");
-            List<String> shoesColors = Arrays.asList("BLACK", "BROWN", "GRAY", "NAVY", "WHITE", "black", "brown", "gray", "navy", "white");
-
-            String color1 = args[0].toUpperCase();
-            String color2 = args[1].toUpperCase();
-            String color3 = args[2].toUpperCase();
-            if (shirtColors.contains(color1)) {
-                if (pantsColors.contains(color2)) {
-                    if (shoesColors.contains(color3)) {
-                        apparelExample(color1, color2, color3);
-                    } else {
-                        System.out.println(color3 + " is not a color to shoes");
-                    }
-                } else {
-                    System.out.println(color2 + " is not a color to pants");
-                }
-            } else {
-                System.out.println(color1 + " is not a color to shirt");
-            }
-        }
-
+    public static void main(String[] args) throws FileNotFoundException, IOException, ParseException {
+       
+    	String filePath = "C:\\Users\\camil\\git\\RDC-API\\src\\main\\resources\\datafiles\\pattern.json";
+    	
+    	List<String>attributes = readFile(filePath);
+    	
+    	test_1_yarn_category_tags(attributes.get(1), attributes.get(2), attributes.get(3), attributes.get(4));
+    	
     }
 
-    /**
-     * Run Apparel Example
-     *
-     * @param color1 - shirt color
-     * @param color2 - pants color
-     * @param color3 - shoes color
-     */
+    public static List<String> readFile(String filePath) throws FileNotFoundException, IOException, ParseException{
+    	JSONParser parser = new JSONParser();
+    	Object obj = parser.parse(new FileReader(filePath));
+    	JSONArray a = (JSONArray) obj;
+    	List<String>attributes = new ArrayList<String>();
+    	
+    	for (Object o : a) {
+    	    JSONObject pattern = (JSONObject) o;
+
+    	    String id = pattern.get("id").toString();
+    	    System.out.println(id);
+    	    attributes.add(id);
+
+    	    String yarn = (String) pattern.get("yarn_name");
+    	    attributes.add(yarn);
+    	    
+    	    String categories = (String) pattern.get("categories");
+    	    String category = categories.split(",")[0];
+    	    attributes.add(category);
+    	    
+    	    String tags = (String) pattern.get("tags");
+    	    String tag1 = tags.split(",")[0];
+    	    String tag2 = tags.split(",")[1];
+    	    attributes.add(tag1);
+    	    attributes.add(tag2);
+    	}
+    	return attributes;
+    }
+    
+
+    public static void test_1_yarn_category_tags(String arg0, String arg1, String arg2, String arg3) throws FileNotFoundException, IOException, ParseException{
+    	
+    	
+         List<String> yarns = Arrays.asList("AlpacaSilk","CottonBraid","GemsPearl","Footpath","YorkshireTweed4Ply");
+         List<String> tags = Arrays.asList("female","adult","male","lace","doolsize","teen","seamed","collar","textured",
+         		"topcuffdown","heelflap","unisex","baby","othertoe","stranded","eyelets","writtenpattern","reversible","child","mesh");
+         List<String> categories = Arrays.asList("Accessories","Clothing","FeetLegs","ToysandHobbies","Hands","NeckTorso","Bag","Tops","Components",
+         		"Socks","Sweater","Hat","Categories");
+
+         String inputYarn = arg0.replace(" ", "").replace("\"", "");
+         String inputCategory = arg1.replace("-", " ").replace("\"", "").replace("\'", "");
+         String inputTag1 = arg2.replaceAll("/", "").replace(" ", "").replace("\"", "").replace("\'", "");
+         String inputTag2 = arg3.replaceAll("/", "").replace(" ", "").replace("\"", "").replace("\'", "");
+         
+         if (yarns.contains(inputYarn)) {
+             if (categories.contains(inputCategory)) {
+                 if (tags.contains(inputTag1) && tags.contains(inputTag2)) {
+                     apparelExample(inputYarn, inputCategory, inputTag1, inputTag2);
+                 } else {
+                     System.out.println(inputTag1 + " or " + inputTag2 + " is not a tag");
+                 }
+             } else {
+                 System.out.println(inputCategory + " is not a category");
+             }
+         } else {
+             System.out.println(inputYarn + " is not a yarn");
+         }
+         
+    }
+    
     public static void apparelExample(
-            String color1,
-            String color2,
-            String color3) {
+    		String inputYarn,
+            String inputCategory,
+            String inputTag1,
+            String inputTag2) throws FileNotFoundException, IOException, ParseException {
 
         // a context which the artifact is evalutated
-        ArtifactContext<Apparel> context = new ApparelContext(
-                "/datafiles/apparelDataset.json",
-                "/datafiles/apparelSynergy.json");
+        ArtifactContext<Pattern> context = new ApparelContext(
+                "C:\\Users\\camil\\git\\RDC-API\\src\\main\\resources\\datafiles\\PatternDataset.json",
+                "C:\\Users\\camil\\git\\RDC-API\\src\\main\\resources\\datafiles\\PatternSynergy.json");
         System.out.println(context.toString());
 
         // a julde to evaluate an artifact in a context
         ArtifactJudge judge = new ApparelJudge();
 
-        // some clothing items
-        List<ClothingItem> clothingItem = Arrays.asList(
-                new ClothingItem(Type.SHIRT, Color.valueOf(color1)), // a navy shirt
-                new ClothingItem(Type.PANTS, Color.valueOf(color2)), // pants white
-                new ClothingItem(Type.SHOES, Color.valueOf(color3))); // shoes brown
+        // some pattern items
+        List<PatternItem>patternItem = Arrays.asList(
+        		new PatternItem(TypeAttribute.yarn, Attribute.valueOf(inputYarn)),
+        		new PatternItem(TypeAttribute.category, Attribute.valueOf(inputCategory)),
+        		new PatternItem(TypeAttribute.tag, Attribute.valueOf(inputTag1)),
+        		new PatternItem(TypeAttribute.tag, Attribute.valueOf(inputTag2))); 
 
         // an artifact to be evaluated
-        Artifact artifact = new Apparel(clothingItem);
+        Artifact artifact = new Pattern(patternItem);
         System.out.println(artifact.toString());
 
         // show the evaluation of an artifact

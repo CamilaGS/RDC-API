@@ -11,33 +11,33 @@ import java.util.List;
  *
  * @author cel
  */
-public class Apparel extends Artifact {
+public class Pattern extends Artifact {
 
     List<PatternItem> patternItems;
 
-    public Apparel() {
+    public Pattern() {
     }
 
-    public Apparel(List<PatternItem> patternItems) {
+    public Pattern(List<PatternItem> patternItems) {
         this.patternItems = patternItems;
     }
 
-    public List<PatternItem> getClothingItems() {
+    public List<PatternItem> getPatternItems() {
         return patternItems;
     }
 
-    public void setClothingItems(List<PatternItem> patternItems) {
+    public void setPatternItems(List<PatternItem> patternItems) {
         this.patternItems = patternItems;
     }
 
-    /*@Override
+    @Override
     public String toString() {
         StringBuilder apparel = new StringBuilder();
         apparel.append("\nApparel Items:\n");
-        for (CItem item : clothingItems) {
-            apparel.append(item.getType()).append(":").append(item.getColor()).append("\n");
+        for (PatternItem item : patternItems) {
+            apparel.append(item.getType()).append(":").append(item.getAtribute()).append("\n");
         }
         return apparel.toString();
-    }*/
+    }
 
 }

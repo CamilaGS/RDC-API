@@ -9,6 +9,6 @@ package creative.framework.model;
  *
  * @author cel
  */
-public enum Type {
-    SHIRT, PANTS, SHOES;
+public enum TypeAttribute {
+    category, tag, yarn;
 }

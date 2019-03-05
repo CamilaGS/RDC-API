@@ -5,7 +5,7 @@
  */
 package creative.framework.main;
 
-import creative.framework.model.Apparel;
+import creative.framework.model.Pattern;
 import creative.framework.novelty.Novelty;
 import creative.framework.value.Value;
 
@@ -13,7 +13,7 @@ import creative.framework.value.Value;
  *
 * @author creapar team
  */
-public class ApparelJudge implements ArtifactJudge<Apparel> {
+public class ApparelJudge implements ArtifactJudge<Pattern> {
 
     public ApparelJudge() {
     }
@@ -26,11 +26,11 @@ public class ApparelJudge implements ArtifactJudge<Apparel> {
      * @return
      */
     @Override
-    public String evaluateArtifact(ArtifactContext<Apparel> context, Apparel artifact) {
+    public String evaluateArtifact(ArtifactContext<Pattern> context, Pattern artifact) {
        
         StringBuilder result = new StringBuilder();
-        Novelty<Apparel> noveltyModel = context.getNoveltyModel();
-        Value<Apparel> valueModel = context.getValueModel();
+        Novelty<Pattern> noveltyModel = context.getNoveltyModel();
+        Value<Pattern> valueModel = context.getValueModel();
         Double n_a = noveltyModel.getNovelty(artifact);
         Double v_a = valueModel.getValue(artifact);
 

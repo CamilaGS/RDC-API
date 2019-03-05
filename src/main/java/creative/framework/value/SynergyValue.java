@@ -5,7 +5,8 @@
  */
 package creative.framework.value;
 
-import creative.framework.model.Apparel;
+import creative.framework.model.Attribute;
+import creative.framework.model.Pattern;
 import creative.framework.model.PatternItem;
 import edu.uci.ics.jung.algorithms.shortestpath.DijkstraShortestPath;
 import edu.uci.ics.jung.graph.Graph;
@@ -18,23 +19,23 @@ import java.util.Map;
  *
  * @author creapar team
  */
-public class SynergyValue implements Value<Apparel> {
+public class SynergyValue implements Value<Pattern> {
 
-    Map<String, List<String>> colorSynergy;
+    Map<Attribute, List<Attribute>> attributeSynergy;
     Graph<PatternItem, Integer> graph;
 
-    public SynergyValue(Map<String, List<String>> colorSynergy) {
-        this.colorSynergy = colorSynergy;
+    public SynergyValue(Map<Attribute, List<Attribute>> attributeSynergy) {
+        this.attributeSynergy = attributeSynergy;
     }
     
     
 
     @Override
-    public Double getValue(Apparel artifact) {
+    public Double getValue(Pattern artifact) {
         // create new graph
         graph = new SparseMultigraph<>();
         // add vertex
-        addVertex(artifact);
+        addVertex_Category_Tag_Yarn(artifact);
         // add edges
         addEdges(artifact);
 
@@ -46,21 +47,21 @@ public class SynergyValue implements Value<Apparel> {
      * @param graph
      * @param artifact
      */
-    private void addVertex(Apparel artifact) {
-        for (PatternItem item : artifact.getClothingItems()) {
-            graph.addVertex(item);
-        }
+    private void addVertex_Category_Tag_Yarn(Pattern artifact) {
+        for (PatternItem item  : artifact.getPatternItems()) {
+        	graph.addVertex(item);
+		}
     }
 
-    private void addEdges(Apparel artifact) {
+    private void addEdges(Pattern artifact) {
         Integer edges = 0;
-        String uColor, vColor;
+        Attribute uAttribute, vAttribute;
 
-        for (PatternItem u : artifact.getClothingItems()) {
-            uColor = u.getColor();
-            for (PatternItem v : artifact.getClothingItems()) {
-                vColor = v.getColor();
-                if (isSynergic(uColor, vColor)) {
+        for (PatternItem u : artifact.getPatternItems()) {
+        	uAttribute = u.getAtribute();
+            for (PatternItem v : artifact.getPatternItems()) {
+            	vAttribute = v.getAtribute();
+                if (isSynergic(uAttribute, vAttribute)) {
                     graph.addEdge(edges++, u, v);
                 }
 
@@ -92,8 +93,8 @@ public class SynergyValue implements Value<Apparel> {
         return 1.0 * e / (n * (n - 1));
     }
 
-    private boolean isSynergic(String uColor, String vColor) {
-        return colorSynergy.get(vColor).contains(uColor);
+    private boolean isSynergic(Attribute uAttribute, Attribute vAttribute) {
+        return attributeSynergy.get(vAttribute).contains(uAttribute);
     }
 
 }

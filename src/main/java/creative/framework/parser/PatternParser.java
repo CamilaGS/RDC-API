@@ -6,7 +6,7 @@
 package creative.framework.parser;
 
 import creative.framework.data.Instance;
-import creative.framework.model.Apparel;
+import creative.framework.model.Pattern;
 import creative.framework.model.PatternItem;
 import java.util.HashMap;
 import java.util.Map;
@@ -15,12 +15,12 @@ import java.util.Map;
  *
  * @author cel
  */
-public class ApparelParser implements Parser<Apparel> {
+public class PatternParser implements Parser<Pattern> {
 
     private final Map<String, Integer> attributes;
     private final Integer attributeCount;
 
-    public ApparelParser() {
+    public PatternParser() {
     	
         attributes = new HashMap<>();
         Integer index = 0;
@@ -45,7 +45,7 @@ public class ApparelParser implements Parser<Apparel> {
     }
 
 	@Override
-	public Instance getInstance(Apparel artifact) {
+	public Instance getInstance(Pattern artifact) {
 		// TODO Auto-generated method stub
 		return null;
 	}
