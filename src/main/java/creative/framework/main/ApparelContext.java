@@ -8,6 +8,7 @@ package creative.framework.main;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import creative.framework.data.Dataset;
+import creative.framework.data.Instance;
 import creative.framework.model.Attribute;
 import creative.framework.model.TypeAttribute;
 import creative.framework.model.Pattern;
@@ -119,7 +120,12 @@ public class ApparelContext implements ArtifactContext<Pattern> {
         Dataset dataset = new Dataset(attributeCount);
 
         for (Pattern apparel : existingArtifacts) {
-            dataset.addInstance(parser.getInstance(apparel));
+        	parser.setInstance(apparel);
+        }
+        
+        for (Pattern apparel : existingArtifacts) {
+        	Instance instance = parser.getInstance(apparel);
+            dataset.addInstance(instance);
         }
         return dataset;
     }

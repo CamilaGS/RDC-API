@@ -17,8 +17,8 @@ import java.util.Map;
  */
 public class PatternParser implements Parser<Pattern> {
 
-    private final Map<String, Integer> attributes;
-    private final Integer attributeCount;
+    private Map<String, Integer> attributes;
+    private Integer attributeCount;
 
     public PatternParser() {
     	
@@ -44,16 +44,28 @@ public class PatternParser implements Parser<Pattern> {
         attributeCount = 0;
     }
 
-	@Override
+    public void setInstance(Pattern artifact) {
+    	// Integer index;
+        String attributeName;
+        for (PatternItem item : artifact.getPatternItems()) {
+        	 attributeName = (item.getType() + ":" + item.getAtribute()).toLowerCase();
+        	 if(!attributes.containsKey(attributeName))
+        		 this.attributes.put(attributeName, this.attributes.size());
+        }
+        this.attributeCount = this.attributes.size();
+    }
+    
 	public Instance getInstance(Pattern artifact) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Integer attributeCount() {
-		// TODO Auto-generated method stub
-		return null;
+		// Integer index;
+        String attributeName;
+        double[] dataInstance = new double[attributeCount];
+        
+        for (PatternItem item : artifact.getPatternItems()) {
+        	attributeName = (item.getType() + ":" + item.getAtribute()).toLowerCase();
+        	 
+        	dataInstance[attributes.get(attributeName)]++;
+        }
+        return new Instance(dataInstance);
 	}
 
     /*
@@ -69,10 +81,10 @@ public class PatternParser implements Parser<Pattern> {
             dataInstance[attributes.get(attributeName)]++;
         }
         return new Instance(dataInstance);
-    }
+    }*/
     
     public Integer attributeCount(){
         return attributeCount;
     }
-     */
+     
 }

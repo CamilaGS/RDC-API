@@ -20,6 +20,8 @@ public interface Parser<T>{
 	 * @param artifact to be converted into the desired format
 	 * @return
 	 */
+	 public void setInstance(T artifact);
+	
     public Instance getInstance(T artifact);
     
     public Integer attributeCount();
