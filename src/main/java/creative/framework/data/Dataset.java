@@ -69,7 +69,7 @@ public class Dataset {
         List<Double> instanceData;
         for (Instance instance : instances) {
             instanceData = instance.getData();
-            for (int i = 0; i < instanceData.size(); i++) {
+            for (int i = 0; i < inputAttributes; i++) {
                 means.get(i).increment(instanceData.get(i));
             }
         }
@@ -94,7 +94,7 @@ public class Dataset {
 
         for (Instance instance : instances) {
             instanceData = instance.getData();
-            for (int i = 0; i < instanceData.size(); i++) {
+            for (int i = 0; i < inputAttributes; i++) {
                 variances.get(i).increment(instanceData.get(i));
             }
         }

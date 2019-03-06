@@ -113,15 +113,15 @@ public class ApparelContext implements ArtifactContext<Pattern> {
 
         //Gson gson = new Gson();
 
-        List<Pattern> existingArtifacts = readFile(datasetFileDescription);//gson.fromJson(utils.getReader(datasetFileDescription), artifactType);
-
-        Integer attributeCount = existingArtifacts.size();//parser.attributeCount();
-
-        Dataset dataset = new Dataset(attributeCount);
-
+       List<Pattern> existingArtifacts = readFile(datasetFileDescription);//gson.fromJson(utils.getReader(datasetFileDescription), artifactType);
+        
+        //Integer attributeCount = existingArtifacts.size();//parser.attributeCount();
+    	
         for (Pattern apparel : existingArtifacts) {
         	parser.setInstance(apparel);
         }
+        
+        Dataset dataset = new Dataset(parser.attributeCount());
         
         for (Pattern apparel : existingArtifacts) {
         	Instance instance = parser.getInstance(apparel);
@@ -129,7 +129,6 @@ public class ApparelContext implements ArtifactContext<Pattern> {
         }
         return dataset;
     }
-    
     public static List<Pattern> readFile(String filePath) throws FileNotFoundException, IOException, ParseException{
     	JSONParser parser = new JSONParser();
     	Object obj = parser.parse(new FileReader(filePath));
@@ -156,7 +155,7 @@ public class ApparelContext implements ArtifactContext<Pattern> {
     	    
     	    JSONObject yarnObj = (JSONObject) patternItems.get(1);    	   
     	    String yarn = yarnObj.get("attribute").toString();
-    	    yarn = yarn.replace(" ", "").replace("\"", "");    	    
+    	    yarn = yarn.replace(" ", "").replace("\"", "").replace("-", "");    	    
     	    if(Attribute.valueOf(yarn) != null)
     	    	attributes.add(new PatternItem(TypeAttribute.yarn,  Attribute.valueOf(yarn))); 
     	    
