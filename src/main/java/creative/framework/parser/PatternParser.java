@@ -50,7 +50,7 @@ public class PatternParser implements Parser<Pattern> {
         for (PatternItem item : artifact.getPatternItems()) {
         	 attributeName = (item.getType() + ":" + item.getAtribute());        	 
         	 if(!attributes.containsKey(attributeName)) {
-        		 System.out.println(attributeName);
+        		 //System.out.println(attributeName);
         		 this.attributes.put(attributeName, this.attributes.size());        		 
         		 this.attributeCount++;
         	 }
@@ -61,11 +61,11 @@ public class PatternParser implements Parser<Pattern> {
 	public Instance getInstance(Pattern artifact) {
 		// Integer index;
         String attributeName;
-        double[] dataInstance = new double[attributeCount];
+        double[] dataInstance = new double[attributeCount+4];
         
         for (PatternItem item : artifact.getPatternItems()) {
         	attributeName = (item.getType() + ":" + item.getAtribute());
-        	System.out.println(attributeName);
+        	//System.out.println(attributeName);
         	if(!attributes.containsKey(attributeName)) {
        		 	this.attributes.put(attributeName, this.attributes.size());        		 
        		 	this.attributeCount++;

@@ -12,7 +12,6 @@ public enum Attribute {
 	RYCCashcotton4Ply,
 	RYCCashcottonDK,
 	RYCNaturalSilkAran,
-	RYCBabyAlpacaDK,
 	CottonRope,
 	RYCBambooSoft,
 	CottonGlace,

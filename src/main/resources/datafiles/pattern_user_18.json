@@ -1,0 +1,81 @@
+[{
+		"id": 3378,
+		"patternItems": [{
+				"type": "category",
+				"attribute": "'Sweater','Clothing','Categories'"
+			},
+			{
+				"type": "yarn",
+				"attribute": "Calmer"
+			},
+			{
+				"type": "tag",
+				"attribute": "'male','female','adult','patch-pocket','collar','zipper','set-in-sleeve','icord','mock-turtleneck','positive-ease','written-pattern','worked-flat'"
+			}
+		]
+	},
+	{
+		"id": 3453,
+		"patternItems": [{
+				"type": "category",
+				"attribute": "'Sweater','Clothing','Categories'"
+			},
+			{
+				"type": "yarn",
+				"attribute": "RYC Cotton Jeans"
+			},
+			{
+				"type": "tag",
+				"attribute": "'female','adult','no-ease','fitted','stripes','seamed','crew-neck','short-sleeve','set-in-sleeve','tied','buttoned','buttonholes','selvedge','worked-flat'"
+			}
+		]
+	},
+	{
+		"id": 3537,
+		"patternItems": [{
+				"type": "category",
+				"attribute": "'Sweater','Clothing','Categories'"
+			},
+			{
+				"type": "yarn",
+				"attribute": "Calmer"
+			},
+			{
+				"type": "tag",
+				"attribute": "'female','adult','fitted','cables','lace','stripes','seamed','shawl','surplice-neck','long-sleeve','set-in-sleeve','tied','front-fastening','doublebreasted','wrap','straight','short-rows','bottom-up','positive-ease','written-pattern','worked-flat','other-colorwork'"
+			}
+		]
+	},
+	{
+		"id": 3729,
+		"patternItems": [{
+				"type": "category",
+				"attribute": "'Hat','Accessories','Categories'"
+			},
+			{
+				"type": "yarn",
+				"attribute": "RYC Baby Alpaca DK"
+			},
+			{
+				"type": "tag",
+				"attribute": "'female','adult','beads','chart','written-pattern','worked-flat'"
+			}
+		]
+	},
+	{
+		"id": 3917,
+		"patternItems": [{
+				"type": "category",
+				"attribute": "'Clothing','Categories'"
+			},
+			{
+				"type": "yarn",
+				"attribute": "RYC Silk Wool DK"
+			},
+			{
+				"type": "tag",
+				"attribute": "'female','adult','fitted','cables','ribbed','seamed','v-neck','bottom-up','written-pattern','worked-flat'"
+			}
+		]
+	}
+]

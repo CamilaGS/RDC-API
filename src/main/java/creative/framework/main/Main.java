@@ -35,9 +35,10 @@ public class Main {
     	String datasetPath = "C:\\Users\\camil\\git\\RDC-API\\src\\main\\resources\\datafiles\\PatternDataset_user_18.json";
     	String synergyPath = "C:\\Users\\camil\\git\\RDC-API\\src\\main\\resources\\datafiles\\PatternSynergy_user_18.json";
     	List<List<String>>attributes = readFile(filePath);
+    	ArtifactContext<Pattern> context =  buildContext(datasetPath, synergyPath);
     	
     	for (List<String> list : attributes) {
-    		test_user_18(list.get(1), list.get(2), list.get(3), list.get(4), datasetPath, synergyPath);
+    		test_user_18(list.get(1), list.get(2), list.get(3), list.get(4), context);
     		System.out.println();
 		}
     	
@@ -83,7 +84,7 @@ public class Main {
     }
     
 
-    public static void test_1_yarn_category_tags(String arg0, String arg1, String arg2, String arg3, String path1, String path2) throws FileNotFoundException, IOException, ParseException{
+    public static void test_1_yarn_category_tags(String arg0, String arg1, String arg2, String arg3, ArtifactContext<Pattern> context) throws FileNotFoundException, IOException, ParseException{
     	
     	
          List<String> yarns = Arrays.asList("AlpacaSilk","CottonBraid","GemsPearl","Footpath","YorkshireTweed4Ply");
@@ -99,8 +100,8 @@ public class Main {
          
          if (yarns.contains(inputYarn)) {
              if (categories.contains(inputCategory)) {
-                 if (tags.contains(inputTag1) && tags.contains(inputTag2)) {
-                     apparelExample(inputYarn, inputCategory, inputTag1, inputTag2, path1, path2);
+                 if (tags.contains(inputTag1) && tags.contains(inputTag2)) {                	 
+                     apparelExample(inputYarn, inputCategory, inputTag1, inputTag2, context);
                  } else {
                      System.out.println(inputTag1 + " or " + inputTag2 + " is not a tag");
                  }
@@ -113,24 +114,25 @@ public class Main {
          
     }
     
-    public static void test_user_18(String arg0, String arg1, String arg2, String arg3, String path1, String path2) throws FileNotFoundException, IOException, ParseException{
+    public static void test_user_18(String arg0, String arg1, String arg2, String arg3, ArtifactContext<Pattern> context) throws FileNotFoundException, IOException, ParseException{
     	List<String> yarns = Arrays.asList("AlpacaSilk","CottonBraid","GemsPearl","Footpath","YorkshireTweed4Ply","BabyMerinoDK",
-       		 "RYCSilkWoolDK","RYCSoftTweed","RYCCashcotton4Ply","RYCBabyAlpacaDK","RYCCashcottonDK","RYCNaturalSilkAran","CottonRope","RYCBambooSoft",
-       		 "CottonGlace","Cork","Calmer","4PlyCotton");
+       		 "RYCSilkWoolDK","RYCSoftTweed","RYCCashcotton4Ply","RYCCashcottonDK","RYCNaturalSilkAran","CottonRope","RYCBambooSoft",
+       		 "CottonGlace","Cork","Calmer","PlyCotton");
         List<String> tags = Arrays.asList("female","adult","male","lace","doolsize","teen","seamed","collar","textured",
         		"topcuffdown","heelflap","unisex","baby","othertoe","stranded","eyelets","writtenpattern","reversible","child","mesh","newbornsize");
         List<String> categories = Arrays.asList("Accessories","Clothing","FeetLegs","ToysandHobbies","Hands","NeckTorso","Bag","Tops","Components",
         		"Socks","Sweater","Hat","Categories","Cozy","Home","Softies","Blanket");
 
-        String inputYarn = arg0.replace(" ", "").replace("\"", "").replace("-", "");
-        String inputCategory = arg1.replace("-", "").replace("\"", "").replace("\'", "");
-        String inputTag1 = arg2.replaceAll("/", "").replace(" ", "").replace("\"", "").replace("\'", "");
-        String inputTag2 = arg3.replaceAll("/", "").replace(" ", "").replace("\"", "").replace("\'", "");
+        String inputYarn = arg0.charAt(0) == '4' ? arg0.replace("4", "") : arg0;        
+        inputYarn = inputYarn.replaceAll(" ", "").replaceAll("\"", "").replaceAll("-", "");
+        String inputCategory = arg1.replaceAll("/", "").replaceAll("-", "").replaceAll("\"", "").replaceAll("\'", "").replaceAll(" ", "");
+        String inputTag1 = arg2.replaceAll("/", "").replaceAll("-", "").replaceAll(" ", "").replaceAll("\"", "").replaceAll("\'", "");
+        String inputTag2 = arg3.replaceAll("/", "").replaceAll("-", "").replaceAll(" ", "").replaceAll("\"", "").replaceAll("\'", "");
         
         if (yarns.contains(inputYarn)) {
             if (categories.contains(inputCategory)) {
-                if (tags.contains(inputTag1) && tags.contains(inputTag2)) {
-                    apparelExample(inputYarn, inputCategory, inputTag1, inputTag2, path1, path2);
+                if (tags.contains(inputTag1) && tags.contains(inputTag2)) {                	
+                    apparelExample(inputYarn, inputCategory, inputTag1, inputTag2, context);
                 } else {
                     System.out.println(inputTag1 + " or " + inputTag2 + " is not a tag");
                 }
@@ -142,19 +144,23 @@ public class Main {
         }
     }
     
+    public static ArtifactContext<Pattern> buildContext(String datasetPath, String synergyPath) throws FileNotFoundException, IOException, ParseException {
+    	
+    	// a context which the artifact is evalutated
+        ArtifactContext<Pattern> context = new ApparelContext(
+        		datasetPath,
+        		synergyPath);
+        System.out.println(context.toString());
+        
+        return context;
+    }
+    
     public static void apparelExample(
     		String inputYarn,
             String inputCategory,
             String inputTag1,
             String inputTag2,
-            String datasetPath,
-            String synergyPath) throws FileNotFoundException, IOException, ParseException {
-
-        // a context which the artifact is evalutated
-        ArtifactContext<Pattern> context = new ApparelContext(
-        		datasetPath,
-        		synergyPath);
-        System.out.println(context.toString());
+            ArtifactContext<Pattern> context) throws FileNotFoundException, IOException, ParseException {
 
         // a julde to evaluate an artifact in a context
         ArtifactJudge judge = new ApparelJudge();

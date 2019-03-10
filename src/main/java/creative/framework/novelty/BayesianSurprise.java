@@ -42,13 +42,22 @@ public class BayesianSurprise implements Novelty<Pattern> {
         Double meanResult;
         Double d;
         List<Double> data = instance.getAttributes();
-        for (int i = 0; i < inputAttributes; i++) {
-            d = data.get(i);
-            mean = means.get(i);
+        for (int i = 0; i < data.size(); i++) {
+        	d = data.get(i);
+        	
+        	if(i >= means.size()) {
+        		mean = new Mean();
+            	mean.increment(0.0);
+            	variance = new Variance();
+            	variance.increment(0.0);            	
+        	}else {
+        		mean = means.get(i);
+        		variance = variances.get(i);        		
+        	}
+        	
             meanResult = mean.getResult();
             mean.increment(d);
-
-            variance = variances.get(i);
+            	
             varianceResult = variance.getResult();
             variance.increment(d);
 
@@ -68,7 +77,7 @@ public class BayesianSurprise implements Novelty<Pattern> {
      * @return
      */
     public double surprise(double data, double variance, double average) {
-        if (variance == 0) {
+        if (variance == 0.0) {
             return 1.0;
         }
         double a = 1.0 / (2 * variance);

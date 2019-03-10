@@ -1,0 +1,241 @@
+[{
+		"id": 23,
+		"patternItems": [{
+				"type": "category",
+				"attribute": "'Neck / Torso','Accessories','Categories'"
+			},
+			{
+				"type": "yarn",
+				"attribute": "Cotton Braid"
+			},
+			{
+				"type": "tag",
+				"attribute": "'unisex','adult','seamed','asymmetric','written-pattern','worked-flat'"
+			}
+		]
+	},
+	{
+		"id": 30,
+		"patternItems": [{
+				"type": "category",
+				"attribute": "'Components','Categories'"
+			},
+			{
+				"type": "yarn",
+				"attribute": "Cotton Braid"
+			},
+			{
+				"type": "tag",
+				"attribute": "'female','teen','adult','textured','seamed','written-pattern','worked-flat'"
+			}
+		]
+	},
+	{
+		"id": 818,
+		"patternItems": [{
+				"type": "category",
+				"attribute": "'Sweater','Clothing','Categories'"
+			},
+			{
+				"type": "yarn",
+				"attribute": "Baby Merino DK"
+			},
+			{
+				"type": "tag",
+				"attribute": "'baby','newborn-size','toddler','bobble-or-popcorn','cables','textured','seamed','long-sleeve','written-pattern','worked-flat','schematic'"
+			}
+		]
+	},
+	{
+		"id": 852,
+		"patternItems": [{
+				"type": "category",
+				"attribute": "'Sweater','Clothing','Categories'"
+			},
+			{
+				"type": "yarn",
+				"attribute": "RYC Soft Tweed"
+			},
+			{
+				"type": "tag",
+				"attribute": "'male','adult','ribbed','seamed','shawl','zipper','long-sleeve','raglan-sleeve','front-fastening','stranded','bottom-up','chart','written-pattern','worked-flat'"
+			}
+		]
+	},
+	{
+		"id": 877,
+		"patternItems": [{
+				"type": "category",
+				"attribute": "'Sweater','Clothing','Categories'"
+			},
+			{
+				"type": "yarn",
+				"attribute": "RYC Silk Wool DK"
+			},
+			{
+				"type": "tag",
+				"attribute": "'female','adult','no-ease','fitted','cables','ribbed','seamed','cowl-neck','waist','long-sleeve','set-in-sleeve','bottom-up','rolled','written-pattern','worked-flat'"
+			}
+		]
+	},
+	{
+		"id": 890,
+		"patternItems": [{
+				"type": "category",
+				"attribute": "'Sweater','Clothing','Categories'"
+			},
+			{
+				"type": "yarn",
+				"attribute": "RYC Cashcotton 4-Ply"
+			},
+			{
+				"type": "tag",
+				"attribute": "'female','adult','negative-ease','fitted','eyelets','lace','seamed','ballet-neck','set-in-sleeve','bottom-up','written-pattern','worked-flat','ribbed','waist','long-sleeve'"
+			}
+		]
+	},
+	{
+		"id": 906,
+		"patternItems": [{
+				"type": "category",
+				"attribute": "'Sweater','Clothing','Categories'"
+			},
+			{
+				"type": "yarn",
+				"attribute": "RYC Cashcotton DK"
+			},
+			{
+				"type": "tag",
+				"attribute": "'female','adult','fitted','ribbed','seamed','scoop-neck','set-in-sleeve','buttoned','buttonholes','bottom-up','written-pattern','worked-flat','short-sleeve'"
+			}
+		]
+	},
+	{
+		"id": 941,
+		"patternItems": [{
+				"type": "category",
+				"attribute": "'Sweater','Clothing','Categories'"
+			},
+			{
+				"type": "yarn",
+				"attribute": "RYC Natural Silk Aran"
+			},
+			{
+				"type": "tag",
+				"attribute": "'female','adult','cables','lace','seamed','scoop-neck','sleeves','long-sleeve','set-in-sleeve','bottom-up','positive-ease','written-pattern','worked-flat'"
+			}
+		]
+	},
+	{
+		"id": 942,
+		"patternItems": [{
+				"type": "category",
+				"attribute": "'Sweater','Clothing','Categories'"
+			},
+			{
+				"type": "yarn",
+				"attribute": "RYC Natural Silk Aran"
+			},
+			{
+				"type": "tag",
+				"attribute": "'female','adult','cables','seamed','scoop-neck','cap-sleeve','empire','buttonholes','bottom-up','written-pattern','worked-flat','buttoned','front-fastening'"
+			}
+		]
+	},
+	{
+		"id": 943,
+		"patternItems": [{
+				"type": "category",
+				"attribute": "'Neck / Torso','Accessories','Categories'"
+			},
+			{
+				"type": "yarn",
+				"attribute": "Cotton Rope"
+			},
+			{
+				"type": "tag",
+				"attribute": "'female','teen','adult','lace','mesh','rectangle'"
+			}
+		]
+	},
+	{
+		"id": 1007,
+		"patternItems": [{
+				"type": "category",
+				"attribute": "'Sweater','Clothing','Categories'"
+			},
+			{
+				"type": "yarn",
+				"attribute": "RYC Cashcotton DK"
+			},
+			{
+				"type": "tag",
+				"attribute": "'female','adult','waist','long-sleeve','set-in-sleeve','tied','front-fastening','positive-ease','written-pattern','lace-edging','v-neck'"
+			}
+		]
+	},
+	{
+		"id": 2035,
+		"patternItems": [{
+				"type": "category",
+				"attribute": "'Sweater','Clothing','Categories'"
+			},
+			{
+				"type": "yarn",
+				"attribute": "RYC Bamboo Soft"
+			},
+			{
+				"type": "tag",
+				"attribute": "'female','adult','bobble-or-popcorn','eyelets','picots','seamed','v-neck','waist','long-sleeve','set-in-sleeve','gathers','ruffles','tied','buttoned','front-fastening','pleated','sideways','bottom-up','positive-ease','written-pattern','worked-flat','lace-edging'"
+			}
+		]
+	},
+	{
+		"id": 2594,
+		"patternItems": [{
+				"type": "category",
+				"attribute": "'Sweater','Clothing','Categories'"
+			},
+			{
+				"type": "yarn",
+				"attribute": "Cotton Glace"
+			},
+			{
+				"type": "tag",
+				"attribute": "'female','adult','no-ease','fitted','eyelets','lace','picots','textured','seamed','scoop-neck','long-sleeve','set-in-sleeve','tied','front-fastening','written-pattern','worked-flat','other-edging'"
+			}
+		]
+	},
+	{
+		"id": 2680,
+		"patternItems": [{
+				"type": "category",
+				"attribute": "'Sweater','Clothing','Categories'"
+			},
+			{
+				"type": "yarn",
+				"attribute": "Cork"
+			},
+			{
+				"type": "tag",
+				"attribute": "'unisex','adult','cables','ribbed','seamed','collar','long-sleeve','buttonholes','bottom-up','positive-ease','chart','written-pattern','modified-drop-sleeve','worked-flat','twisted-stitches'"
+			}
+		]
+	},
+	{
+		"id": 2906,
+		"patternItems": [{
+				"type": "category",
+				"attribute": "'Sweater','Clothing','Categories'"
+			},
+			{
+				"type": "yarn",
+				"attribute": "Calmer"
+			},
+			{
+				"type": "tag",
+				"attribute": "'female','adult','cables','eyelets','lace','textured','short-sleeve','set-in-sleeve','tied','positive-ease','written-pattern','other-edging','v-neck'"
+			}
+		]
+	}
+]
